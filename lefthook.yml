@@ -1,0 +1,16 @@
+pre-push:
+  parallel: true
+  commands:
+    linter:
+      run: fvm flutter analyze
+
+pre-commit:
+  commands:
+    pretty:
+      glob: '*.dart'
+      run: fvm flutter format {staged_files} && git add {staged_files}
+
+post-merge:
+  commands:
+    update-flutter-sdk:
+      run: fvm install
