@@ -4,9 +4,6 @@ analyzer:
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
-    - "**/*.mocks.dart"
-    - "lib/common/locale_keys.dart"
-    - "build.yaml"
   language:
     strict-inference: true
     strict-raw-types: true

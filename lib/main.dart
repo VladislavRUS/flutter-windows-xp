@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/screens/app.dart';
+import 'package:flutter_windows_xp/screens/app/app.dart';
+import 'package:provider/provider.dart';
+import 'package:tap_canvas/tap_canvas.dart';
+
+import 'stores/root.store.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,12 +12,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Windows XP',
-      home: App(),
+    return Provider(
+      create: (_) => RootStore(),
+      builder: (_, __) => const TapCanvas(
+        child: MaterialApp(
+          title: 'Flutter Windows XP',
+          home: App(),
+        ),
+      ),
     );
   }
 }
