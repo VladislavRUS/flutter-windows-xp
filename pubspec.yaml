@@ -30,6 +30,7 @@ dependencies:
   freezed_annotation: ^2.2.0
   short_uuids: ^2.0.0
   tap_canvas: ^0.9.4
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:

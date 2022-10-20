@@ -6,3 +6,6 @@ scripts:
 
   get:
     run: fvm flutter pub get
+
+  clean:
+    run: fvm flutter clean
