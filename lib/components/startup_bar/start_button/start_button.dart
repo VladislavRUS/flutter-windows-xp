@@ -68,12 +68,15 @@ class _StartButtonState extends State<StartButton> {
         onTapDown: _onTapDown,
         onTapUp: _onTapUp,
         onTap: _onTap,
-        child: ColorFiltered(
-          colorFilter: ColorFilter.mode(filterColor, BlendMode.lighten),
-          child: Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(Assets.startButton), fit: BoxFit.cover)),
+        child: ClipRRect(
+          child: ColorFiltered(
+            colorFilter: ColorFilter.mode(filterColor, BlendMode.lighten),
+            child: Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(Assets.startButton),
+                      fit: BoxFit.cover)),
+            ),
           ),
         ),
       ),
