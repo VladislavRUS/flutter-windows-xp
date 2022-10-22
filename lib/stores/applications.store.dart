@@ -1,8 +1,8 @@
 import 'package:flutter_windows_xp/common/assets.dart';
 import 'package:flutter_windows_xp/components/applications/notepad/notepad.dart';
 import 'package:flutter_windows_xp/models/application/application.model.dart';
+import 'package:flutter_windows_xp/utils/short_id.dart';
 import 'package:mobx/mobx.dart';
-import 'package:short_uuids/short_uuids.dart';
 
 import 'root.store.dart';
 
@@ -18,28 +18,20 @@ abstract class ApplicationsStoreBase with Store {
   @observable
   List<ApplicationModel> applications = [
     ApplicationModel(
-      id: const ShortUuid().generate(),
+      id: shortId(),
       name: 'Notepad',
       icon: Assets.notepadIcon,
       widget: const Notepad(),
-      opened: false,
     )
   ];
 
-  List<ApplicationModel> get openedApplications =>
-      applications.where((element) => element.opened).toList();
-
   @action
-  void open(String id) {
-    applications = applications
-        .map((app) => app.id == id ? app.copyWith(opened: true) : app)
-        .toList();
+  void open(ApplicationModel app) {
+    rootStore.windowsStore.openApp(app);
   }
 
   @action
-  void close(String id) {
-    applications = applications
-        .map((app) => app.id == id ? app.copyWith(opened: false) : app)
-        .toList();
+  void close(ApplicationModel app) {
+    rootStore.windowsStore.closeApp(app);
   }
 }

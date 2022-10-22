@@ -42,7 +42,7 @@ class _AppIconState extends State<AppIcon> {
       onTappedInside: _onTappedInside,
       onTappedOutside: _onTappedOutside,
       child: GestureDetector(
-        onDoubleTap: () => applicationsStore.open(widget.application.id),
+        onDoubleTap: () => applicationsStore.open(widget.application),
         child: Column(
           children: [
             Image.asset(

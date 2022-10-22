@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/components/app_window/app_content/app_content.dart';
-import 'package:flutter_windows_xp/components/app_window/app_header/app_header.dart';
-import 'package:flutter_windows_xp/components/app_window/app_resize_anchor/app_resize_anchor.dart';
+
+import 'app_content/app_content.dart';
+import 'app_header/app_header.dart';
+import 'app_resize_anchor/app_resize_anchor.dart';
 
 class AppWindow extends StatefulWidget {
   final Widget child;
+  final Widget header;
+  final bool focused;
+  final VoidCallback onUnfocusedTap;
 
   const AppWindow({
     Key? key,
+    required this.header,
     required this.child,
+    required this.focused,
+    required this.onUnfocusedTap,
   }) : super(key: key);
 
   @override
@@ -113,52 +120,63 @@ class _AppWindowState extends State<AppWindow> {
       top: _top,
       width: _width,
       height: _height,
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
-        ),
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                Draggable(
-                  feedback: const SizedBox.shrink(),
-                  onDragUpdate: _onDragUpdate,
-                  child: const AppHeader(),
+      child: GestureDetector(
+        onPanDown: widget.focused ? null : (_) => widget.onUnfocusedTap(),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(8),
+            topRight: Radius.circular(8),
+          ),
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  Draggable(
+                    feedback: const SizedBox.shrink(),
+                    onDragUpdate: _onDragUpdate,
+                    child: AppHeader(
+                      header: widget.header,
+                      focused: widget.focused,
+                    ),
+                  ),
+                  Expanded(
+                    child: AppContent(
+                      focused: widget.focused,
+                      child: widget.child,
+                    ),
+                  ),
+                ],
+              ),
+              Positioned(
+                left: 0,
+                top: 0,
+                child: AppResizeAnchor(
+                  onDragUpdate: _onDragTopLeftCorner,
                 ),
-                Expanded(child: AppContent(child: widget.child)),
-              ],
-            ),
-            Positioned(
-              left: 0,
-              top: 0,
-              child: AppResizeAnchor(
-                onDragUpdate: _onDragTopLeftCorner,
               ),
-            ),
-            Positioned(
-              right: 0,
-              top: 0,
-              child: AppResizeAnchor(
-                onDragUpdate: _onDragTopRightCorner,
+              Positioned(
+                right: 0,
+                top: 0,
+                child: AppResizeAnchor(
+                  onDragUpdate: _onDragTopRightCorner,
+                ),
               ),
-            ),
-            Positioned(
-              right: 0,
-              bottom: 0,
-              child: AppResizeAnchor(
-                onDragUpdate: _onDragBottomRightCorner,
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: AppResizeAnchor(
+                  onDragUpdate: _onDragBottomRightCorner,
+                ),
               ),
-            ),
-            Positioned(
-              left: 0,
-              bottom: 0,
-              child: AppResizeAnchor(
-                onDragUpdate: _onDragBottomLeftCorner,
+              Positioned(
+                left: 0,
+                bottom: 0,
+                child: AppResizeAnchor(
+                  onDragUpdate: _onDragBottomLeftCorner,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

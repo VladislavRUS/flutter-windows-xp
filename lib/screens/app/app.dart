@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/common/assets.dart';
 import 'package:flutter_windows_xp/components/startup_bar/startup_bar.dart';
-import 'package:flutter_windows_xp/screens/app/applications_renderer/applications_renderer.dart';
-import 'package:flutter_windows_xp/screens/app/desktop_renderer/desktop_renderer.dart';
+
+import 'desktop_renderer/desktop_renderer.dart';
+import 'windows_renderer/windows_renderer.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class App extends StatelessWidget {
               child: DesktopRenderer(),
             ),
             Positioned.fill(
-              child: ApplicationsRenderer(),
+              child: WindowsRenderer(),
             ),
           ],
         ),
