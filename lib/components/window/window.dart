@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_windows_xp/common/constants.dart';
 import 'package:flutter_windows_xp/components/window/app_window/app_window.dart';
 import 'package:flutter_windows_xp/components/window/resizable/resizable.dart';
 import 'package:flutter_windows_xp/components/window/window.store.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_windows_xp/models/application/window.model.dart';
 import 'package:flutter_windows_xp/stores/root.store.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:tap_canvas/tap_canvas.dart';
 
 class Window extends StatefulWidget {
   final WindowModel window;
@@ -41,8 +43,12 @@ class _WindowState extends State<Window> {
           return Positioned(
             left: windowStore.window.left,
             top: windowStore.window.top,
-            width: windowStore.window.width,
-            height: windowStore.window.height,
+            width: windowStore.window.maximized
+                ? MediaQuery.of(context).size.width
+                : windowStore.window.width,
+            height: windowStore.window.maximized
+                ? MediaQuery.of(context).size.height - Constants.bottomBarHeight
+                : windowStore.window.height,
             child: GestureDetector(
               onPanDown: windowStore.window.focused
                   ? null
@@ -52,37 +58,44 @@ class _WindowState extends State<Window> {
                 onDragTopRightCorner: windowStore.onDragTopRightCorner,
                 onDragBottomRightCorner: windowStore.onDragBottomRightCorner,
                 onDragBottomLeftCorner: windowStore.onDragBottomLeftCorner,
-                child: AppWindow(
-                  onDragUpdate: windowStore.onDragUpdate,
-                  focused: windowStore.window.focused,
-                  header: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      Image.asset(
-                        widget.window.application.icon,
-                        width: 15,
-                        height: 15,
-                      ),
-                      const SizedBox(
-                        width: 3,
-                      ),
-                      Text(
-                        windowStore.name,
-                        style: GoogleFonts.notoSans(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            shadows: const [
-                              BoxShadow(
-                                  color: Colors.black, offset: Offset(1, 1)),
-                            ]),
-                      )
-                    ],
+                child: TapOutsideDetectorWidget(
+                  onTappedOutside: () {
+                    if (windowStore.window.focused) {
+                      windowStore.unfocus();
+                    }
+                  },
+                  child: AppWindow(
+                    onDragUpdate: windowStore.onDragUpdate,
+                    focused: windowStore.window.focused,
+                    header: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        Image.asset(
+                          widget.window.application.icon,
+                          width: 15,
+                          height: 15,
+                        ),
+                        const SizedBox(
+                          width: 3,
+                        ),
+                        Text(
+                          windowStore.name,
+                          style: GoogleFonts.notoSans(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              shadows: const [
+                                BoxShadow(
+                                    color: Colors.black, offset: Offset(1, 1)),
+                              ]),
+                        )
+                      ],
+                    ),
+                    child: widget.window.application.widget,
                   ),
-                  child: widget.window.application.widget,
                 ),
               ),
             ),

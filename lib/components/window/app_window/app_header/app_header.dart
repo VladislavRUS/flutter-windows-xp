@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/components/window/app_window/app_header/app_header_background.dart';
+import 'package:flutter_windows_xp/components/window/app_window/app_header/header_action_buttons/header_action_buttons.dart';
 
 class AppHeader extends StatelessWidget {
   final Widget header;
@@ -20,11 +21,23 @@ class AppHeader extends StatelessWidget {
           AppHeaderBackground(
             focused: focused,
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              header,
-            ],
+          SizedBox(
+            height: double.infinity,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                header,
+                const Spacer(),
+                Opacity(
+                  opacity: focused ? 1 : 0.6,
+                  child: const HeaderActionButtons(),
+                ),
+                const SizedBox(
+                  width: 5,
+                )
+              ],
+            ),
           ),
           Positioned(
             left: 0,

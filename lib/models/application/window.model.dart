@@ -10,15 +10,19 @@ abstract class _WindowModel with Store {
   final ApplicationModel application;
   int zIndex;
   @observable
-  double width = 400;
+  double width = 500;
   @observable
-  double height = 400;
+  double height = 500;
   @observable
-  double top = 0;
+  double top = 100;
   @observable
-  double left = 0;
+  double left = 100;
   @observable
   bool focused = true;
+  @observable
+  bool maximized = false;
+  @observable
+  bool hidden = false;
 
   _WindowModel({
     required this.id,

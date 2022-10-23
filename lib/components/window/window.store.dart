@@ -7,12 +7,27 @@ part 'window.store.g.dart';
 
 class WindowStore = WindowStoreBase with _$WindowStore;
 
+class WindowPosition {
+  final double top;
+  final double left;
+  final double width;
+  final double height;
+
+  WindowPosition({
+    required this.top,
+    required this.left,
+    required this.width,
+    required this.height,
+  });
+}
+
 abstract class WindowStoreBase with Store {
   final RootStore rootStore;
   final WindowModel window;
 
   final _minWidth = 200;
   final _minHeight = 200;
+  WindowPosition? _prevPosition;
 
   WindowStoreBase(this.rootStore, this.window);
 
@@ -104,5 +119,44 @@ abstract class WindowStoreBase with Store {
   @action
   void setFocused() {
     rootStore.windowsStore.focus(window.id);
+  }
+
+  @action
+  void unfocus() {
+    rootStore.windowsStore.unfocus(window.id);
+  }
+
+  @action
+  void hide() {
+    window.hidden = true;
+  }
+
+  @action
+  void toggleSize() {
+    window.maximized = !window.maximized;
+
+    if (window.maximized) {
+      _prevPosition = WindowPosition(
+        top: window.top,
+        left: window.left,
+        width: window.width,
+        height: window.height,
+      );
+
+      window.top = 0;
+      window.left = 0;
+    } else if (_prevPosition != null) {
+      final pos = _prevPosition!;
+
+      window.top = pos.top;
+      window.left = pos.left;
+      window.width = pos.width;
+      window.height = pos.height;
+    }
+  }
+
+  @action
+  void close() {
+    rootStore.windowsStore.closeWindow(window.id);
   }
 }

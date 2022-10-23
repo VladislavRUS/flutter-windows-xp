@@ -5,4 +5,7 @@ class Assets {
 
   // Apps
   static const notepadIcon = 'assets/apps/notepad.png';
+
+  // Icons
+  static const closeIcon = 'assets/icons/close.svg';
 }

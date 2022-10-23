@@ -30,6 +30,7 @@ dependencies:
   short_uuids: ^2.0.0
   tap_canvas: ^0.9.4
   google_fonts: ^3.0.1
+  flutter_svg: ^1.1.5
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +54,7 @@ flutter:
   assets:
     - assets/images/
     - assets/apps/
+    - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

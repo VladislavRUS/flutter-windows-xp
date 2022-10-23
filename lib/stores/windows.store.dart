@@ -67,4 +67,11 @@ abstract class WindowsStoreBase with Store {
       }
     });
   }
+
+  @action
+  void unfocus(String windowId) {
+    final window = windows.firstWhereOrNull((window) => window.id == windowId);
+
+    window?.focused = false;
+  }
 }

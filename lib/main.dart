@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       builder: (_, __) => const TapCanvas(
         child: MaterialApp(
           title: 'Flutter Windows XP',
+          debugShowCheckedModeBanner: false,
           home: App(),
         ),
       ),
