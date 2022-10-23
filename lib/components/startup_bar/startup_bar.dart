@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/common/constants.dart';
 import 'package:flutter_windows_xp/components/startup_bar/start_button/start_button.dart';
+import 'package:flutter_windows_xp/components/startup_bar/startup_toolbar/startup_toolbar.dart';
 
 class StartupBar extends StatelessWidget {
   const StartupBar({Key? key}) : super(key: key);
@@ -50,8 +51,11 @@ class StartupBar extends StatelessWidget {
             0.98,
           ])),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: const [
           SizedBox(width: 106, child: StartButton()),
+          StartupToolbar(),
         ],
       ),
     );

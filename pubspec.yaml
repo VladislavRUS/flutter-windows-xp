@@ -31,6 +31,7 @@ dependencies:
   tap_canvas: ^0.9.4
   google_fonts: ^3.0.1
   flutter_svg: ^1.1.5
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

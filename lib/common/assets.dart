@@ -8,4 +8,7 @@ class Assets {
 
   // Icons
   static const closeIcon = 'assets/icons/close.svg';
+  static const deviceIcon = 'assets/icons/device.png';
+  static const protection = 'assets/icons/protection.png';
+  static const sound = 'assets/icons/sound.png';
 }
