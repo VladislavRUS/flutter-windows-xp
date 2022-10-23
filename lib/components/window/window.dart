@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_windows_xp/components/window/app_window/app_window.dart';
+import 'package:flutter_windows_xp/components/window/resizable/resizable.dart';
 import 'package:flutter_windows_xp/components/window/window.store.dart';
 import 'package:flutter_windows_xp/models/application/window.model.dart';
 import 'package:flutter_windows_xp/stores/root.store.dart';
@@ -37,36 +38,54 @@ class _WindowState extends State<Window> {
       value: windowStore,
       child: Observer(
         builder: (_) {
-          return AppWindow(
-            onUnfocusedTap: windowStore.setFocused,
-            focused: widget.window.focused,
-            header: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  width: 4,
+          return Positioned(
+            left: windowStore.window.left,
+            top: windowStore.window.top,
+            width: windowStore.window.width,
+            height: windowStore.window.height,
+            child: GestureDetector(
+              onPanDown: windowStore.window.focused
+                  ? null
+                  : (_) => windowStore.setFocused(),
+              child: Resizable(
+                onDragTopLeftCorner: windowStore.onDragTopLeftCorner,
+                onDragTopRightCorner: windowStore.onDragTopRightCorner,
+                onDragBottomRightCorner: windowStore.onDragBottomRightCorner,
+                onDragBottomLeftCorner: windowStore.onDragBottomLeftCorner,
+                child: AppWindow(
+                  onDragUpdate: windowStore.onDragUpdate,
+                  focused: windowStore.window.focused,
+                  header: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      Image.asset(
+                        widget.window.application.icon,
+                        width: 15,
+                        height: 15,
+                      ),
+                      const SizedBox(
+                        width: 3,
+                      ),
+                      Text(
+                        windowStore.name,
+                        style: GoogleFonts.notoSans(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            shadows: const [
+                              BoxShadow(
+                                  color: Colors.black, offset: Offset(1, 1)),
+                            ]),
+                      )
+                    ],
+                  ),
+                  child: widget.window.application.widget,
                 ),
-                Image.asset(
-                  widget.window.application.icon,
-                  width: 15,
-                  height: 15,
-                ),
-                const SizedBox(
-                  width: 3,
-                ),
-                Text(
-                  windowStore.name,
-                  style: GoogleFonts.notoSans(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      shadows: const [
-                        BoxShadow(color: Colors.black, offset: Offset(1, 1)),
-                      ]),
-                )
-              ],
+              ),
             ),
-            child: widget.window.application.widget,
           );
         },
       ),

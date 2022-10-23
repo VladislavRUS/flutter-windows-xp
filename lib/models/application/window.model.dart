@@ -9,7 +9,14 @@ abstract class _WindowModel with Store {
   final String id;
   final ApplicationModel application;
   int zIndex;
-
+  @observable
+  double width = 400;
+  @observable
+  double height = 400;
+  @observable
+  double top = 0;
+  @observable
+  double left = 0;
   @observable
   bool focused = true;
 

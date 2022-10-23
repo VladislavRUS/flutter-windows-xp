@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class AppResizeAnchor extends StatelessWidget {
+class ResizeAnchor extends StatelessWidget {
   final DragUpdateCallback onDragUpdate;
 
-  const AppResizeAnchor({
+  const ResizeAnchor({
     Key? key,
     required this.onDragUpdate,
   }) : super(key: key);
