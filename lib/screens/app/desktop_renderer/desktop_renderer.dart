@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_windows_xp/stores/root.store.dart';
 import 'package:provider/provider.dart';
 
@@ -14,15 +13,16 @@ class DesktopRenderer extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(20),
-      child: Observer(
-        builder: (_) => Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: applicationsStore.applications
-              .map((application) => AppIcon(
-                    application: application,
-                  ))
-              .toList(),
+      child: ListView.separated(
+        itemBuilder: (_, index) => Row(
+          children: [
+            AppIcon(application: applicationsStore.applications[index]),
+          ],
         ),
+        separatorBuilder: (_, __) => const SizedBox(
+          height: 20,
+        ),
+        itemCount: applicationsStore.applications.length,
       ),
     );
   }

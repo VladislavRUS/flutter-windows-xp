@@ -1,5 +1,6 @@
 import 'package:flutter_windows_xp/common/assets.dart';
 import 'package:flutter_windows_xp/components/applications/notepad/notepad.dart';
+import 'package:flutter_windows_xp/components/applications/paint/paint.dart';
 import 'package:flutter_windows_xp/models/application/application.model.dart';
 import 'package:flutter_windows_xp/utils/short_id.dart';
 import 'package:mobx/mobx.dart';
@@ -22,7 +23,13 @@ abstract class ApplicationsStoreBase with Store {
       name: 'Notepad',
       icon: Assets.notepadIcon,
       widget: const Notepad(),
-    )
+    ),
+    ApplicationModel(
+      id: shortId(),
+      name: 'Paint',
+      icon: Assets.paintIcon,
+      widget: const Paint(),
+    ),
   ];
 
   @action
