@@ -10,7 +10,7 @@ abstract class _WindowModel with Store {
   final ApplicationModel application;
   int zIndex;
   @observable
-  double width = 500;
+  double width = 800;
   @observable
   double height = 500;
   @observable

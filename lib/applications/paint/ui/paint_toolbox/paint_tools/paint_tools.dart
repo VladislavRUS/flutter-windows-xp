@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/common/assets.dart';
-import 'package:flutter_windows_xp/components/applications/paint/paint_toolbox/paint_tools/tool/tool.dart';
+
+import 'tool/tool.dart';
 
 class PaintTools extends StatelessWidget {
   const PaintTools({Key? key}) : super(key: key);

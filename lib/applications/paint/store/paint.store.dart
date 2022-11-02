@@ -1,20 +1,21 @@
 import 'package:flutter_windows_xp/applications/notepad/notepad.dart';
+import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint.dart';
 import 'package:flutter_windows_xp/common/assets.dart';
 import 'package:flutter_windows_xp/models/application/application.model.dart';
 import 'package:flutter_windows_xp/utils/short_id.dart';
 import 'package:mobx/mobx.dart';
 
-import 'root.store.dart';
+part 'paint.store.g.dart';
 
-part 'applications.store.g.dart';
+class PaintStore = PaintStoreBase with _$PaintStore;
 
-class ApplicationsStore = ApplicationsStoreBase with _$ApplicationsStore;
+abstract class PaintStoreBase with Store {
+  late ColorsStore colorsStore;
 
-abstract class ApplicationsStoreBase with Store {
-  RootStoreBase rootStore;
-
-  ApplicationsStoreBase(this.rootStore);
+  PaintStoreBase() {
+    colorsStore = ColorsStore(this);
+  }
 
   @observable
   List<ApplicationModel> applications = [
@@ -33,12 +34,8 @@ abstract class ApplicationsStoreBase with Store {
   ];
 
   @action
-  void open(ApplicationModel app) {
-    rootStore.windowsStore.openApp(app);
-  }
+  void open(ApplicationModel app) {}
 
   @action
-  void close(ApplicationModel app) {
-    rootStore.windowsStore.closeApp(app);
-  }
+  void close(ApplicationModel app) {}
 }
