@@ -9,3 +9,6 @@ scripts:
 
   clean:
     run: fvm flutter clean
+
+  build:
+    run: fvm flutter build web
