@@ -1,5 +1,6 @@
 import 'package:flutter_windows_xp/applications/notepad/notepad.dart';
 import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools.store.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint.dart';
 import 'package:flutter_windows_xp/common/assets.dart';
 import 'package:flutter_windows_xp/models/application/application.model.dart';
@@ -12,9 +13,11 @@ class PaintStore = PaintStoreBase with _$PaintStore;
 
 abstract class PaintStoreBase with Store {
   late ColorsStore colorsStore;
+  late ToolsStore toolsStore;
 
   PaintStoreBase() {
     colorsStore = ColorsStore(this);
+    toolsStore = ToolsStore(this);
   }
 
   @observable

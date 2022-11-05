@@ -1,15 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_windows_xp/applications/paint/models/paint_tool.dart';
 import 'package:flutter_windows_xp/common/assets.dart';
 
 class Tool extends StatefulWidget {
-  final String iconAsset;
-  final VoidCallback onTap;
+  final PaintTool tool;
+  final void Function(PaintTool) onTap;
   final bool selected;
 
   const Tool({
     Key? key,
-    required this.iconAsset,
+    required this.tool,
     required this.onTap,
     this.selected = false,
   }) : super(key: key);
@@ -115,6 +116,8 @@ class _ToolState extends State<Tool> {
     setState(() {
       _pressed = false;
     });
+
+    widget.onTap(widget.tool);
   }
 
   @override
@@ -142,7 +145,7 @@ class _ToolState extends State<Tool> {
               ),
               child: Center(
                   child: Image.asset(
-                widget.iconAsset,
+                widget.tool.iconPath,
                 width: 16,
                 height: 16,
               )),
