@@ -1,4 +1,4 @@
-import 'package:flutter_windows_xp/applications/paint/models/paint_tool.dart';
+import 'package:flutter_windows_xp/applications/paint/models/paint_tool.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/common/assets.dart';
 import 'package:mobx/mobx.dart';
@@ -9,8 +9,6 @@ class ToolsStore = ToolsStoreBase with _$ToolsStore;
 
 abstract class ToolsStoreBase with Store {
   final PaintStoreBase paintStore;
-  @observable
-  PaintTool? currentTool;
 
   ToolsStoreBase(this.paintStore) {
     currentTool = availableTools.firstWhere(
@@ -18,75 +16,78 @@ abstract class ToolsStoreBase with Store {
     );
   }
 
-  List<PaintTool> availableTools = [
-    PaintTool(
+  @observable
+  PaintToolModel? currentTool;
+
+  List<PaintToolModel> availableTools = [
+    PaintToolModel(
       type: PaintToolType.select,
       iconPath: Assets.toolSelectIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.squareSelect,
       iconPath: Assets.toolSquareSelectIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.eraser,
       iconPath: Assets.toolEraserIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.fill,
       iconPath: Assets.toolFillIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.picker,
       iconPath: Assets.toolPickerIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.zoom,
       iconPath: Assets.toolZoomIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.pencil,
       iconPath: Assets.toolPencilIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.brush,
       iconPath: Assets.toolBrushIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.spray,
       iconPath: Assets.toolSprayIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.text,
       iconPath: Assets.toolTextIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.line,
       iconPath: Assets.toolLineIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.rect,
       iconPath: Assets.toolRectIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.poly,
       iconPath: Assets.toolPolyIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.ellipsis,
       iconPath: Assets.toolEllipsisIcon,
     ),
-    PaintTool(
+    PaintToolModel(
       type: PaintToolType.rounded,
       iconPath: Assets.toolRoundedIcon,
     ),
   ];
 
   @action
-  void setCurrentTool(PaintTool tool) {
+  void setCurrentTool(PaintToolModel tool) {
     currentTool = tool;
   }
 
-  bool isToolSelected(PaintTool tool) {
+  bool isToolSelected(PaintToolModel tool) {
     return currentTool == tool;
   }
 }

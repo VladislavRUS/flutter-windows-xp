@@ -1,8 +1,11 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/applications/paint/ui/paint_body/paint_canvas/canvas_cursor/cursor_icon/cursor_icon.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_windows_xp/applications/paint/models/paint_tool.model.dart';
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'package:provider/provider.dart';
 
-class CanvasCursor extends StatefulWidget {
+class CanvasCursor extends StatelessWidget {
   final Widget child;
 
   const CanvasCursor({
@@ -10,62 +13,25 @@ class CanvasCursor extends StatefulWidget {
     required this.child,
   }) : super(key: key);
 
-  @override
-  State<CanvasCursor> createState() => _CanvasCursorIconState();
-}
+  SystemMouseCursor _getCursor(PaintToolModel currentTool) {
+    // Need Flutter API to support more cursors
+    // https://github.com/flutter/flutter/issues/31952
 
-class _CanvasCursorIconState extends State<CanvasCursor> {
-  double? _x;
-  double? _y;
+    if (currentTool.type == PaintToolType.zoom) {
+      return SystemMouseCursors.zoomIn;
+    }
 
-  void _onEnter(PointerEnterEvent event) {
-    setState(() {
-      _x = event.localPosition.dx;
-      _y = event.localPosition.dy;
-    });
-  }
-
-  void _onExit(PointerExitEvent event) {
-    setState(() {
-      _x = null;
-      _y = null;
-    });
-  }
-
-  void _onHover(PointerHoverEvent event) {
-    setState(() {
-      _x = event.localPosition.dx;
-      _y = event.localPosition.dy;
-    });
-  }
-
-  void _onPanUpdate(DragUpdateDetails details) {
-    setState(() {
-      _x = details.localPosition.dx;
-      _y = details.localPosition.dy;
-    });
+    return SystemMouseCursors.precise;
   }
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: _onEnter,
-      onExit: _onExit,
-      onHover: _onHover,
-      cursor: SystemMouseCursors.none,
-      child: GestureDetector(
-        onPanUpdate: _onPanUpdate,
-        child: Stack(
-          children: [
-            Positioned.fill(child: widget.child),
-            if (_x != null && _y != null)
-              Positioned(
-                left: _x,
-                top: _y,
-                child: const CursorIcon(),
-              ),
-          ],
-        ),
+    final toolsStore = context.read<PaintStore>().toolsStore;
+
+    return Observer(
+      builder: (_) => MouseRegion(
+        cursor: _getCursor(toolsStore.currentTool!),
+        child: child,
       ),
     );
   }

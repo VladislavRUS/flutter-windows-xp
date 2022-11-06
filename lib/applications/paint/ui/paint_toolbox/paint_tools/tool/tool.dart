@@ -1,11 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/applications/paint/models/paint_tool.dart';
+import 'package:flutter_windows_xp/applications/paint/models/paint_tool.model.dart';
 import 'package:flutter_windows_xp/common/assets.dart';
 
 class Tool extends StatefulWidget {
-  final PaintTool tool;
-  final void Function(PaintTool) onTap;
+  final PaintToolModel tool;
+  final void Function(PaintToolModel) onTap;
   final bool selected;
 
   const Tool({

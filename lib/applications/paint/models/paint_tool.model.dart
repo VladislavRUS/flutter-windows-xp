@@ -1,8 +1,8 @@
-class PaintTool {
+class PaintToolModel {
   final PaintToolType type;
   final String iconPath;
 
-  PaintTool({
+  PaintToolModel({
     required this.type,
     required this.iconPath,
   });

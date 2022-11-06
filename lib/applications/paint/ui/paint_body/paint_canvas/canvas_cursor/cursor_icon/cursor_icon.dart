@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_windows_xp/applications/paint/models/paint_tool.dart';
+import 'package:flutter_windows_xp/applications/paint/models/paint_tool.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:provider/provider.dart';
 
@@ -16,16 +16,10 @@ class CursorIcon extends StatelessWidget {
     PaintToolType.eraser,
   ];
 
-  Widget _buildIcon(PaintTool currentTool) {
+  Widget _buildIcon(PaintToolModel currentTool) {
     if (_toolTypesWithAsset.contains(currentTool.type)) {
-      return ColorFiltered(
-        colorFilter: const ColorFilter.mode(
-          Colors.white,
-          BlendMode.saturation,
-        ),
-        child: Image.asset(
-          currentTool.iconPath,
-        ),
+      return Image.asset(
+        currentTool.iconPath,
       );
     }
 
