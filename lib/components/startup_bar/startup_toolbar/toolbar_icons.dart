@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/common/assets.dart';
+import 'package:flutter_windows_xp/common/assets.gen.dart';
 
 class ToolbarIcons extends StatelessWidget {
   const ToolbarIcons({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class ToolbarIcons extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(
-          Assets.sound,
+          Assets.icons.sound.path,
           width: 15,
           height: 15,
         ),
@@ -18,7 +18,7 @@ class ToolbarIcons extends StatelessWidget {
           width: 2,
         ),
         Image.asset(
-          Assets.deviceIcon,
+          Assets.icons.device.path,
           width: 15,
           height: 15,
         ),
@@ -26,7 +26,7 @@ class ToolbarIcons extends StatelessWidget {
           width: 2,
         ),
         Image.asset(
-          Assets.protection,
+          Assets.icons.protection.path,
           width: 15,
           height: 15,
         )

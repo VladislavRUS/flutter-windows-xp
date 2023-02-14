@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/applications/paint/models/paint_tool.model.dart';
-import 'package:flutter_windows_xp/common/assets.dart';
+import 'package:flutter_windows_xp/common/assets.gen.dart';
 
 class Tool extends StatefulWidget {
   final PaintToolModel tool;
@@ -137,8 +137,8 @@ class _ToolState extends State<Tool> {
                 color: Colors.transparent,
                 border: _border,
                 image: widget.selected
-                    ? const DecorationImage(
-                        image: AssetImage(Assets.checker),
+                    ? DecorationImage(
+                        image: AssetImage(Assets.apps.paint.checker.path),
                         repeat: ImageRepeat.repeat,
                       )
                     : null,

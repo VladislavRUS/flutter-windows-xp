@@ -4,6 +4,7 @@ analyzer:
   exclude:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
+    - "**/*.gen.dart"
   language:
     strict-inference: true
     strict-raw-types: true

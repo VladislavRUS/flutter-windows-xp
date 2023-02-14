@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/common/assets.dart';
+import 'package:flutter_windows_xp/common/assets.gen.dart';
 
 class UserHeader extends StatelessWidget {
   const UserHeader({Key? key}) : super(key: key);
@@ -61,7 +61,7 @@ class UserHeader extends StatelessWidget {
                     border: Border.all(color: Colors.white, width: 2),
                     borderRadius: BorderRadius.circular(3)),
                 child: Image.asset(
-                  Assets.userAvatar,
+                  Assets.images.userAvatar.path,
                 ),
               ),
               const SizedBox(

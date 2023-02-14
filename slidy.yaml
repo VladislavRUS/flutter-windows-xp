@@ -7,6 +7,11 @@ scripts:
   get:
     run: fvm flutter pub get
 
+  assets:
+    steps:
+      - run: fvm dart pub global activate flutter_gen
+      - run: fluttergen -c pubspec.yaml
+
   clean:
     run: fvm flutter clean
 

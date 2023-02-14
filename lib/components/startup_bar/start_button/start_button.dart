@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/common/assets.dart';
+import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:flutter_windows_xp/components/startup_bar/startup_menu_dialog/startup_menu_dialog.dart';
 
 class StartButton extends StatefulWidget {
@@ -72,9 +72,9 @@ class _StartButtonState extends State<StartButton> {
           child: ColorFiltered(
             colorFilter: ColorFilter.mode(filterColor, BlendMode.lighten),
             child: Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(Assets.startButton),
+                      image: AssetImage(Assets.images.startButton.path),
                       fit: BoxFit.cover)),
             ),
           ),

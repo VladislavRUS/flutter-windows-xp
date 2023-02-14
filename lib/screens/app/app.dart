@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/common/assets.dart';
+import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:flutter_windows_xp/components/startup_bar/startup_bar.dart';
 
 import 'desktop_renderer/desktop_renderer.dart';
@@ -11,9 +11,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(Assets.backgroundImage), fit: BoxFit.cover),
+          image: AssetImage(Assets.images.background.path),
+          fit: BoxFit.cover,
+        ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,

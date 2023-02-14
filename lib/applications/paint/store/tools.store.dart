@@ -1,6 +1,6 @@
 import 'package:flutter_windows_xp/applications/paint/models/paint_tool.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
-import 'package:flutter_windows_xp/common/assets.dart';
+import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:mobx/mobx.dart';
 
 part 'tools.store.g.dart';
@@ -22,63 +22,63 @@ abstract class ToolsStoreBase with Store {
   List<PaintToolModel> availableTools = [
     PaintToolModel(
       type: PaintToolType.select,
-      iconPath: Assets.toolSelectIcon,
+      iconPath: Assets.apps.paint.toolSelect.path,
     ),
     PaintToolModel(
       type: PaintToolType.squareSelect,
-      iconPath: Assets.toolSquareSelectIcon,
+      iconPath: Assets.apps.paint.toolSquareSelect.path,
     ),
     PaintToolModel(
       type: PaintToolType.eraser,
-      iconPath: Assets.toolEraserIcon,
+      iconPath: Assets.apps.paint.toolEraser.path,
     ),
     PaintToolModel(
       type: PaintToolType.fill,
-      iconPath: Assets.toolFillIcon,
+      iconPath: Assets.apps.paint.toolFill.path,
     ),
     PaintToolModel(
       type: PaintToolType.picker,
-      iconPath: Assets.toolPickerIcon,
+      iconPath: Assets.apps.paint.toolPicker.path,
     ),
     PaintToolModel(
       type: PaintToolType.zoom,
-      iconPath: Assets.toolZoomIcon,
+      iconPath: Assets.apps.paint.toolZoom.path,
     ),
     PaintToolModel(
       type: PaintToolType.pencil,
-      iconPath: Assets.toolPencilIcon,
+      iconPath: Assets.apps.paint.toolPencil.path,
     ),
     PaintToolModel(
       type: PaintToolType.brush,
-      iconPath: Assets.toolBrushIcon,
+      iconPath: Assets.apps.paint.toolBrush.path,
     ),
     PaintToolModel(
       type: PaintToolType.spray,
-      iconPath: Assets.toolSprayIcon,
+      iconPath: Assets.apps.paint.toolSpray.path,
     ),
     PaintToolModel(
       type: PaintToolType.text,
-      iconPath: Assets.toolTextIcon,
+      iconPath: Assets.apps.paint.toolText.path,
     ),
     PaintToolModel(
       type: PaintToolType.line,
-      iconPath: Assets.toolLineIcon,
+      iconPath: Assets.apps.paint.toolLine.path,
     ),
     PaintToolModel(
       type: PaintToolType.rect,
-      iconPath: Assets.toolRectIcon,
+      iconPath: Assets.apps.paint.toolRect.path,
     ),
     PaintToolModel(
       type: PaintToolType.poly,
-      iconPath: Assets.toolPolyIcon,
+      iconPath: Assets.apps.paint.toolPoly.path,
     ),
     PaintToolModel(
       type: PaintToolType.ellipsis,
-      iconPath: Assets.toolEllipsisIcon,
+      iconPath: Assets.apps.paint.toolEllipsis.path,
     ),
     PaintToolModel(
       type: PaintToolType.rounded,
-      iconPath: Assets.toolRoundedIcon,
+      iconPath: Assets.apps.paint.toolRounded.path,
     ),
   ];
 
