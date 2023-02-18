@@ -1,3 +1,4 @@
+import 'package:flutter_windows_xp/applications/paint/store/tools/fill.tool.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
@@ -33,10 +34,8 @@ abstract class ToolsStoreBase with Store {
       EraserTool(
         paintStore.colorsStore,
       ),
-      StubTool(
+      FillTool(
         paintStore.colorsStore,
-        type: CanvasToolType.fill,
-        iconPath: Assets.apps.paint.toolFill.path,
       ),
       StubTool(
         paintStore.colorsStore,
