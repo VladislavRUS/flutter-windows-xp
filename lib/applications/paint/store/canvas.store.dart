@@ -12,6 +12,12 @@ class CanvasStore = CanvasStoreBase with _$CanvasStore;
 abstract class CanvasStoreBase with Store {
   final PaintStoreBase paintStore;
 
+  @observable
+  ObservableList<DrawingModel> drawings = ObservableList.of([]);
+
+  @observable
+  DrawingModel? currentDrawing;
+
   CanvasStoreBase(this.paintStore) {
     drawings.add(
       DrawingModel(
@@ -20,13 +26,9 @@ abstract class CanvasStoreBase with Store {
         type: DrawingType.background,
       ),
     );
+
+    currentDrawing = drawings.last;
   }
-
-  @observable
-  ObservableList<DrawingModel> drawings = ObservableList.of([]);
-
-  @observable
-  DrawingModel? currentDrawing;
 
   @action
   void onStart(DragStartDetails details) {

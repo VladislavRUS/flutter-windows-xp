@@ -15,6 +15,9 @@ abstract class ToolsStoreBase with Store {
   final PaintStoreBase paintStore;
   final List<CanvasTool> availableTools = [];
 
+  @observable
+  CanvasTool? currentTool;
+
   ToolsStoreBase(this.paintStore) {
     availableTools.addAll([
       StubTool(
@@ -89,9 +92,6 @@ abstract class ToolsStoreBase with Store {
       (element) => element.type == CanvasToolType.pencil,
     );
   }
-
-  @observable
-  CanvasTool? currentTool;
 
   @action
   void setCurrentTool(CanvasTool tool) {

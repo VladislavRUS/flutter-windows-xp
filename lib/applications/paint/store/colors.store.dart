@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'paint.store.dart';
 
 part 'colors.store.g.dart';
 
@@ -14,10 +15,10 @@ abstract class ColorsStoreBase with Store {
   ColorsStoreBase(this.paintStore);
 
   @observable
-  Color primaryColor = Colors.black;
+  CustomColor primaryColor = CustomColor(0xFF000000);
 
   @observable
-  Color secondaryColor = Colors.white;
+  CustomColor secondaryColor = CustomColor(0xFFFFFFFF);
 
   List<Color> availableColors = const [
     Color.fromRGBO(0, 0, 0, 1),
@@ -52,12 +53,12 @@ abstract class ColorsStoreBase with Store {
 
   @action
   void setPrimaryColor(Color color) {
-    primaryColor = color;
+    primaryColor = CustomColor(color.value);
   }
 
   @action
   void setSecondaryColor(Color color) {
-    secondaryColor = color;
+    secondaryColor = CustomColor(color.value);
   }
 
   @action
@@ -67,4 +68,8 @@ abstract class ColorsStoreBase with Store {
     secondaryColor = primaryColor;
     primaryColor = tmp;
   }
+}
+
+class CustomColor extends Color {
+  CustomColor(int value) : super(value);
 }

@@ -1,5 +1,4 @@
-import 'package:flutter/widgets.dart';
-
+import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
@@ -21,10 +20,14 @@ class PencilTool extends CanvasTool {
           ..moveTo(
             details.localPosition.dx,
             details.localPosition.dy,
+          )
+          ..lineTo(
+            details.localPosition.dx,
+            details.localPosition.dy,
           ),
         paint: Paint()
           ..color = colorsStore.primaryColor
-          ..strokeWidth = 1
+          ..strokeWidth = 2
           ..strokeCap = StrokeCap.round,
         type: DrawingType.path,
       ),
