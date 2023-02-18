@@ -2,36 +2,43 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
+import 'package:flutter_windows_xp/common/assets.gen.dart';
 
-class PencilCanvasTool extends CanvasTool {
-  final ColorsStore colorsStore;
-  Offset? _lastOffset;
-
-  PencilCanvasTool(this.colorsStore);
+class PencilTool extends CanvasTool {
+  PencilTool(ColorsStore colorsStore)
+      : super(
+          colorsStore,
+          type: CanvasToolType.pencil,
+          iconPath: Assets.apps.paint.toolPencil.path,
+        );
 
   @override
-  void onStart(DrawingModel drawing, DragStartDetails details) {
-    print('onDown');
-
-    _lastOffset = details.localPosition;
+  void onStart(List<DrawingModel> drawings, DragStartDetails details) {
+    drawings.add(
+      DrawingModel(
+        path: Path()
+          ..moveTo(
+            details.localPosition.dx,
+            details.localPosition.dy,
+          ),
+        paint: Paint()
+          ..color = colorsStore.primaryColor
+          ..strokeWidth = 1
+          ..strokeCap = StrokeCap.round,
+        type: DrawingType.path,
+      ),
+    );
   }
 
   @override
-  void onUpdate(DrawingModel drawing, DragUpdateDetails details) {
-    print('onMove');
+  void onUpdate(List<DrawingModel> drawings, DragUpdateDetails details) {
+    final currentDrawing = drawings.last;
 
-    if (_lastOffset == null) {
-      return;
-    }
+    final path = currentDrawing.path!;
 
-    final currentOffset = details.localPosition;
-    final paint = Paint()..color = colorsStore.primaryColor;
-
-    // canvas.drawLine(_lastOffset!, currentOffset, paint);
-
-    print('draw');
+    path.lineTo(details.localPosition.dx, details.localPosition.dy);
   }
 
   @override
-  void onEnd(DrawingModel drawing, DragEndDetails details) {}
+  void onEnd(List<DrawingModel> drawings, DragEndDetails details) {}
 }

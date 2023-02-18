@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_windows_xp/applications/paint/models/paint_tool.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
 import 'package:provider/provider.dart';
 
 class CanvasCursor extends StatelessWidget {
@@ -13,11 +13,11 @@ class CanvasCursor extends StatelessWidget {
     required this.child,
   }) : super(key: key);
 
-  SystemMouseCursor _getCursor(PaintToolModel currentTool) {
+  SystemMouseCursor _getCursor(CanvasTool currentTool) {
     // Need Flutter API to support more cursors
     // https://github.com/flutter/flutter/issues/31952
 
-    if (currentTool.type == PaintToolType.zoom) {
+    if (currentTool.type == CanvasToolType.zoom) {
       return SystemMouseCursors.zoomIn;
     }
 

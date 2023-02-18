@@ -26,33 +26,30 @@ abstract class CanvasStoreBase with Store {
 
   @action
   void onStart(DragStartDetails details) {
-    final path = Path();
-
-    path.moveTo(details.localPosition.dx, details.localPosition.dy);
-
-    final paint = Paint();
-    paint.color = paintStore.colorsStore.primaryColor;
-    paint.style = PaintingStyle.stroke;
-
-    currentDrawing = DrawingModel(
-      paint: paint,
-      type: DrawingType.path,
-      path: path,
+    paintStore.toolsStore.currentTool?.onStart(
+      drawings,
+      details,
     );
+
+    currentDrawing = drawings.last;
   }
 
   @action
   void onUpdate(DragUpdateDetails details) {
-    final path = currentDrawing!.path!;
+    paintStore.toolsStore.currentTool?.onUpdate(
+      drawings,
+      details,
+    );
 
-    path.lineTo(details.localPosition.dx, details.localPosition.dy);
-
-    currentDrawing = currentDrawing;
+    currentDrawing = drawings.last;
   }
 
   @action
   void onEnd(DragEndDetails details) {
-    drawings.add(currentDrawing!);
+    paintStore.toolsStore.currentTool?.onEnd(
+      drawings,
+      details,
+    );
 
     currentDrawing = null;
   }
