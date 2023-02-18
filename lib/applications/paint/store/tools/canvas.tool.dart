@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
-import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 
 abstract class CanvasTool {
-  final ColorsStore colorsStore;
+  final PaintStoreBase paintStore;
   final CanvasToolType type;
   final String iconPath;
 
   CanvasTool(
-    this.colorsStore, {
+    this.paintStore, {
     required this.type,
     required this.iconPath,
   });

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
-import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 
 class PencilTool extends CanvasTool {
-  PencilTool(ColorsStore colorsStore)
+  PencilTool(PaintStoreBase paintStore)
       : super(
-          colorsStore,
+          paintStore,
           type: CanvasToolType.pencil,
           iconPath: Assets.apps.paint.toolPencil.path,
         );
@@ -26,7 +26,7 @@ class PencilTool extends CanvasTool {
             details.localPosition.dy,
           ),
         paint: Paint()
-          ..color = colorsStore.primaryColor
+          ..color = paintStore.colorsStore.primaryColor
           ..strokeWidth = 2
           ..strokeCap = StrokeCap.round,
         type: DrawingType.path,

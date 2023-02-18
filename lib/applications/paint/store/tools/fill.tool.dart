@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
-import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 
 class FillTool extends CanvasTool {
-  FillTool(ColorsStore colorsStore)
+  FillTool(PaintStoreBase paintStore)
       : super(
-          colorsStore,
+          paintStore,
           type: CanvasToolType.fill,
           iconPath: Assets.apps.paint.toolFill.path,
         );
@@ -16,7 +16,7 @@ class FillTool extends CanvasTool {
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
     drawings.add(
       DrawingModel(
-        paint: Paint()..color = colorsStore.primaryColor,
+        paint: Paint()..color = paintStore.colorsStore.primaryColor,
         type: DrawingType.fill,
       ),
     );

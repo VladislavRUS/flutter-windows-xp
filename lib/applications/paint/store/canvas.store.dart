@@ -12,6 +12,8 @@ class CanvasStore = CanvasStoreBase with _$CanvasStore;
 abstract class CanvasStoreBase with Store {
   final PaintStoreBase paintStore;
 
+  final canvasKey = GlobalKey();
+
   @observable
   ObservableList<DrawingModel> drawings = ObservableList.of([]);
 

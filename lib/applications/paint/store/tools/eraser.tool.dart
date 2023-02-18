@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
-import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 
@@ -11,9 +11,9 @@ part 'eraser.tool.g.dart';
 class EraserTool = EraserToolBase with _$EraserTool;
 
 abstract class EraserToolBase extends CanvasTool with Store {
-  EraserToolBase(ColorsStore colorsStore)
+  EraserToolBase(PaintStoreBase paintStore)
       : super(
-          colorsStore,
+          paintStore,
           type: CanvasToolType.eraser,
           iconPath: Assets.apps.paint.toolEraser.path,
         );
@@ -35,7 +35,7 @@ abstract class EraserToolBase extends CanvasTool with Store {
             details.localPosition.dy,
           ),
         paint: Paint()
-          ..color = colorsStore.secondaryColor
+          ..color = paintStore.colorsStore.secondaryColor
           ..strokeWidth = size
           ..strokeCap = StrokeCap.round,
         type: DrawingType.path,
