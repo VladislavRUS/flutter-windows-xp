@@ -16,15 +16,12 @@ class PencilTool extends CanvasTool {
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
     drawings.add(
       DrawingModel(
-        path: Path()
-          ..moveTo(
-            details.localPosition.dx,
-            details.localPosition.dy,
-          )
-          ..lineTo(
+        path: [
+          Offset(
             details.localPosition.dx,
             details.localPosition.dy,
           ),
+        ],
         paint: Paint()
           ..color = paintStore.colorsStore.primaryColor
           ..strokeWidth = 2
@@ -40,7 +37,12 @@ class PencilTool extends CanvasTool {
 
     final path = currentDrawing.path!;
 
-    path.lineTo(details.localPosition.dx, details.localPosition.dy);
+    path.add(
+      Offset(
+        details.localPosition.dx,
+        details.localPosition.dy,
+      ),
+    );
   }
 
   @override

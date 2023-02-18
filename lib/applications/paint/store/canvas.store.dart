@@ -23,7 +23,6 @@ abstract class CanvasStoreBase with Store {
   CanvasStoreBase(this.paintStore) {
     drawings.add(
       DrawingModel(
-        path: Path(),
         paint: Paint()..color = Colors.white,
         type: DrawingType.background,
       ),

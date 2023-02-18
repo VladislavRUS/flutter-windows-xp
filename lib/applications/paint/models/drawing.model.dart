@@ -1,7 +1,7 @@
 import 'package:flutter/painting.dart';
 
 class DrawingModel {
-  final Path? path;
+  final List<Offset>? path;
   final Paint paint;
   final DrawingType type;
 

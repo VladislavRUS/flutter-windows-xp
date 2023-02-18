@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
@@ -33,8 +35,8 @@ class CanvasPainter extends CustomPainter {
     }
   }
 
-  void _paintPath(Canvas canvas, Path path, Paint paint) {
-    canvas.drawPath(path, paint);
+  void _paintPath(Canvas canvas, List<Offset> path, Paint paint) {
+    canvas.drawPoints(PointMode.polygon, path, paint);
   }
 
   void _paintBackground(Canvas canvas, Size size, Paint paint) {
