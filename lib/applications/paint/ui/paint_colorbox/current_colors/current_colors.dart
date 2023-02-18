@@ -12,18 +12,19 @@ class CurrentColors extends StatelessWidget {
 
   BoxBorder get _border {
     return const Border(
-        left: BorderSide(
-          color: Color.fromRGBO(128, 128, 128, 1),
-        ),
-        top: BorderSide(
-          color: Color.fromRGBO(128, 128, 128, 1),
-        ),
-        right: BorderSide(
-          color: Color.fromRGBO(192, 192, 192, 1),
-        ),
-        bottom: BorderSide(
-          color: Color.fromRGBO(192, 192, 192, 1),
-        ));
+      left: BorderSide(
+        color: Color.fromRGBO(128, 128, 128, 1),
+      ),
+      top: BorderSide(
+        color: Color.fromRGBO(128, 128, 128, 1),
+      ),
+      right: BorderSide(
+        color: Color.fromRGBO(192, 192, 192, 1),
+      ),
+      bottom: BorderSide(
+        color: Color.fromRGBO(192, 192, 192, 1),
+      ),
+    );
   }
 
   @override
@@ -38,10 +39,11 @@ class CurrentColors extends StatelessWidget {
         child: ColorBoxShadow(
           child: Container(
             decoration: BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage(Assets.apps.paint.checker.path),
-              repeat: ImageRepeat.repeat,
-            )),
+              image: DecorationImage(
+                image: AssetImage(Assets.apps.paint.checker.path),
+                repeat: ImageRepeat.repeat,
+              ),
+            ),
             child: Stack(
               children: [
                 Positioned(

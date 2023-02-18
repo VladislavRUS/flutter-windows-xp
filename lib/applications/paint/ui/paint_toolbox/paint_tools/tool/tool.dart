@@ -144,11 +144,12 @@ class _ToolState extends State<Tool> {
                     : null,
               ),
               child: Center(
-                  child: Image.asset(
-                widget.tool.iconPath,
-                width: 16,
-                height: 16,
-              )),
+                child: Image.asset(
+                  widget.tool.iconPath,
+                  width: 16,
+                  height: 16,
+                ),
+              ),
             ),
             Container(
               width: 24,

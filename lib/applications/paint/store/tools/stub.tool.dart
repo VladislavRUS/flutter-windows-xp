@@ -4,9 +4,11 @@ import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
 
 class StubTool extends CanvasTool {
-  StubTool(ColorsStore colorsStore,
-      {required CanvasToolType type, required String iconPath})
-      : super(colorsStore, type: type, iconPath: iconPath);
+  StubTool(
+    ColorsStore colorsStore, {
+    required CanvasToolType type,
+    required String iconPath,
+  }) : super(colorsStore, type: type, iconPath: iconPath);
 
   @override
   void onEnd(List<DrawingModel> drawings, DragEndDetails details) {}

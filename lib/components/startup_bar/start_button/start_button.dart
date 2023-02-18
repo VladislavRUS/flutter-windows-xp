@@ -52,10 +52,11 @@ class _StartButtonState extends State<StartButton> {
 
   void _onTap() async {
     await showDialog<void>(
-        context: context,
-        builder: (_) => const StartupMenuDialog(),
-        barrierColor: const Color(0x00ffffff),
-        barrierDismissible: true);
+      context: context,
+      builder: (_) => const StartupMenuDialog(),
+      barrierColor: const Color(0x00ffffff),
+      barrierDismissible: true,
+    );
   }
 
   @override
@@ -73,9 +74,11 @@ class _StartButtonState extends State<StartButton> {
             colorFilter: ColorFilter.mode(filterColor, BlendMode.lighten),
             child: Container(
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(Assets.images.startButton.path),
-                      fit: BoxFit.cover)),
+                image: DecorationImage(
+                  image: AssetImage(Assets.images.startButton.path),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ),
         ),

@@ -11,10 +11,10 @@ class StartupBar extends StatelessWidget {
     return Container(
       height: Constants.bottomBarHeight,
       decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
             Color.fromRGBO(31, 47, 134, 1),
             Color.fromRGBO(49, 101, 196, 1),
             Color.fromRGBO(54, 130, 229, 1),
@@ -32,7 +32,7 @@ class StartupBar extends StatelessWidget {
             Color.fromRGBO(29, 78, 192, 1),
             Color.fromRGBO(25, 65, 165, 1),
           ],
-              stops: [
+          stops: [
             0,
             0.03,
             0.06,
@@ -49,7 +49,9 @@ class StartupBar extends StatelessWidget {
             0.92,
             0.95,
             0.98,
-          ])),
+          ],
+        ),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,

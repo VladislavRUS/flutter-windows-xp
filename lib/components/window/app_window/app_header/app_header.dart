@@ -46,18 +46,19 @@ class AppHeader extends StatelessWidget {
             child: Container(
               width: 3,
               decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                stops: [
-                  0,
-                  1,
-                ],
-                colors: [
-                  Color.fromRGBO(22, 56, 230, 0.4),
-                  Colors.transparent,
-                ],
-              )),
+                gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [
+                    0,
+                    1,
+                  ],
+                  colors: [
+                    Color.fromRGBO(22, 56, 230, 0.4),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
             ),
           ),
           Positioned(
@@ -67,18 +68,19 @@ class AppHeader extends StatelessWidget {
             child: Container(
               width: 3,
               decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                begin: Alignment.centerRight,
-                end: Alignment.centerLeft,
-                stops: [
-                  0,
-                  1,
-                ],
-                colors: [
-                  Color.fromRGBO(22, 56, 230, 0.4),
-                  Colors.transparent,
-                ],
-              )),
+                gradient: LinearGradient(
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
+                  stops: [
+                    0,
+                    1,
+                  ],
+                  colors: [
+                    Color.fromRGBO(22, 56, 230, 0.4),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
             ),
           ),
         ],

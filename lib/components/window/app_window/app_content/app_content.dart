@@ -18,20 +18,21 @@ class AppContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          border: Border(
-        left: BorderSide(
-          color: _borderColor,
-          width: 3,
+        border: Border(
+          left: BorderSide(
+            color: _borderColor,
+            width: 3,
+          ),
+          right: BorderSide(
+            color: _borderColor,
+            width: 3,
+          ),
+          bottom: BorderSide(
+            color: _borderColor,
+            width: 3,
+          ),
         ),
-        right: BorderSide(
-          color: _borderColor,
-          width: 3,
-        ),
-        bottom: BorderSide(
-          color: _borderColor,
-          width: 3,
-        ),
-      )),
+      ),
       child: child,
     );
   }

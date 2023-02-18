@@ -11,11 +11,13 @@ abstract class CanvasStoreBase with Store {
   final PaintStoreBase paintStore;
 
   CanvasStoreBase(this.paintStore) {
-    drawings.add(DrawingModel(
-      path: Path(),
-      paint: Paint()..color = Colors.white,
-      type: DrawingType.background,
-    ));
+    drawings.add(
+      DrawingModel(
+        path: Path(),
+        paint: Paint()..color = Colors.white,
+        type: DrawingType.background,
+      ),
+    );
   }
 
   @observable

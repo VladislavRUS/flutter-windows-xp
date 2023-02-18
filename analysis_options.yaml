@@ -15,3 +15,8 @@ analyzer:
 linter:
   rules:
     - prefer_final_locals
+    - require_trailing_commas
+
+dart_code_metrics:
+  extends:
+    - package:dart_code_metrics_presets/all.yaml

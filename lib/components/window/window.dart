@@ -84,13 +84,16 @@ class _WindowState extends State<Window> {
                         Text(
                           windowStore.name,
                           style: GoogleFonts.notoSans(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              shadows: const [
-                                BoxShadow(
-                                    color: Colors.black, offset: Offset(1, 1)),
-                              ]),
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            shadows: const [
+                              BoxShadow(
+                                color: Colors.black,
+                                offset: Offset(1, 1),
+                              ),
+                            ],
+                          ),
                         )
                       ],
                     ),

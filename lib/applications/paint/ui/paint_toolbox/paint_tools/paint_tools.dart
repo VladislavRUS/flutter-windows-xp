@@ -17,11 +17,13 @@ class PaintTools extends StatelessWidget {
         shrinkWrap: true,
         crossAxisCount: 2,
         children: toolsStore.availableTools
-            .map((tool) => Tool(
-                  tool: tool,
-                  onTap: toolsStore.setCurrentTool,
-                  selected: toolsStore.isToolSelected(tool),
-                ))
+            .map(
+              (tool) => Tool(
+                tool: tool,
+                onTap: toolsStore.setCurrentTool,
+                selected: toolsStore.isToolSelected(tool),
+              ),
+            )
             .toList(),
       ),
     );

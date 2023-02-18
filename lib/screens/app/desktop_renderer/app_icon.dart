@@ -62,14 +62,15 @@ class _AppIconState extends State<AppIcon> {
               child: Text(
                 widget.application.name,
                 style: const TextStyle(
-                    fontSize: 10,
-                    color: Colors.white,
-                    shadows: [
-                      BoxShadow(
-                        color: Colors.black,
-                        offset: Offset(1, 1),
-                      )
-                    ]),
+                  fontSize: 10,
+                  color: Colors.white,
+                  shadows: [
+                    BoxShadow(
+                      color: Colors.black,
+                      offset: Offset(1, 1),
+                    )
+                  ],
+                ),
               ),
             ),
           ],
