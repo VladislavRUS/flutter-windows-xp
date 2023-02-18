@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'paint_tool_options/paint_tool_options.dart';
 import 'paint_tools/paint_tools.dart';
 
 class PaintToolbox extends StatelessWidget {
@@ -18,6 +19,10 @@ class PaintToolbox extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: const [
           PaintTools(),
+          SizedBox(
+            height: 3,
+          ),
+          PaintToolOptions(),
         ],
       ),
     );

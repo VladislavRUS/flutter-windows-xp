@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
+
+import 'package:mobx/mobx.dart';
+
 import 'package:flutter_windows_xp/models/window/window.model.dart';
 import 'package:flutter_windows_xp/stores/root.store.dart';
-import 'package:mobx/mobx.dart';
 
 part 'window.store.g.dart';
 

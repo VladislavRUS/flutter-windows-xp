@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+
 import 'package:mobx/mobx.dart';
+
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 
 part 'colors.store.g.dart';
 

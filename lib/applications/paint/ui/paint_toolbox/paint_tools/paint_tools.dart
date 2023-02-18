@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:provider/provider.dart';
 
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'tool/tool.dart';
 
 class PaintTools extends StatelessWidget {

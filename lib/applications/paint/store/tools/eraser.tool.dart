@@ -1,17 +1,22 @@
 import 'package:flutter/widgets.dart';
 
+import 'package:mobx/mobx.dart';
+
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 
-class PencilTool extends CanvasTool {
-  PencilTool(ColorsStore colorsStore)
+class EraserTool extends CanvasTool {
+  EraserTool(ColorsStore colorsStore)
       : super(
           colorsStore,
-          type: CanvasToolType.pencil,
-          iconPath: Assets.apps.paint.toolPencil.path,
+          type: CanvasToolType.eraser,
+          iconPath: Assets.apps.paint.toolEraser.path,
         );
+
+  @observable
+  double size = 5;
 
   @override
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
@@ -23,8 +28,8 @@ class PencilTool extends CanvasTool {
             details.localPosition.dy,
           ),
         paint: Paint()
-          ..color = colorsStore.primaryColor
-          ..strokeWidth = 1
+          ..color = colorsStore.secondaryColor
+          ..strokeWidth = size
           ..strokeCap = StrokeCap.round,
         type: DrawingType.path,
       ),
@@ -42,4 +47,8 @@ class PencilTool extends CanvasTool {
 
   @override
   void onEnd(List<DrawingModel> drawings, DragEndDetails details) {}
+
+  void onSelectSize(double value) {
+    size = value;
+  }
 }

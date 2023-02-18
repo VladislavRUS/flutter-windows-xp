@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+
 import 'package:provider/provider.dart';
 
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'paint_body/paint_body.dart';
 import 'paint_colorbox/paint_colorbox.dart';
 import 'paint_status_bar/paint_status_bar.dart';

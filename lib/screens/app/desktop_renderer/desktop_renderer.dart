@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/stores/root.store.dart';
+
 import 'package:provider/provider.dart';
 
+import 'package:flutter_windows_xp/stores/root.store.dart';
 import 'app_icon.dart';
 
 class DesktopRenderer extends StatelessWidget {

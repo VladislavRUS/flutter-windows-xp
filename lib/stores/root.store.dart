@@ -1,6 +1,7 @@
+import 'package:mobx/mobx.dart';
+
 import 'package:flutter_windows_xp/stores/applications.store.dart';
 import 'package:flutter_windows_xp/stores/windows.store.dart';
-import 'package:mobx/mobx.dart';
 
 part 'root.store.g.dart';
 

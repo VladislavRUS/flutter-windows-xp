@@ -1,8 +1,9 @@
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/pencil.tool.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:mobx/mobx.dart';
 
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/eraser.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/pencil.tool.dart';
+import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'tools/canvas.tool.dart';
 import 'tools/stub.tool.dart';
 
@@ -16,14 +17,6 @@ abstract class ToolsStoreBase with Store {
 
   ToolsStoreBase(this.paintStore) {
     availableTools.addAll([
-      PencilTool(
-        paintStore.colorsStore,
-      ),
-      StubTool(
-        paintStore.colorsStore,
-        type: CanvasToolType.select,
-        iconPath: Assets.apps.paint.toolSelect.path,
-      ),
       StubTool(
         paintStore.colorsStore,
         type: CanvasToolType.select,
@@ -34,10 +27,8 @@ abstract class ToolsStoreBase with Store {
         type: CanvasToolType.squareSelect,
         iconPath: Assets.apps.paint.toolSquareSelect.path,
       ),
-      StubTool(
+      EraserTool(
         paintStore.colorsStore,
-        type: CanvasToolType.eraser,
-        iconPath: Assets.apps.paint.toolEraser.path,
       ),
       StubTool(
         paintStore.colorsStore,
@@ -54,15 +45,8 @@ abstract class ToolsStoreBase with Store {
         type: CanvasToolType.zoom,
         iconPath: Assets.apps.paint.toolZoom.path,
       ),
-      StubTool(
+      PencilTool(
         paintStore.colorsStore,
-        type: CanvasToolType.pencil,
-        iconPath: Assets.apps.paint.toolPencil.path,
-      ),
-      StubTool(
-        paintStore.colorsStore,
-        type: CanvasToolType.brush,
-        iconPath: Assets.apps.paint.toolBrush.path,
       ),
       StubTool(
         paintStore.colorsStore,
@@ -101,7 +85,9 @@ abstract class ToolsStoreBase with Store {
       ),
     ]);
 
-    currentTool = availableTools.first;
+    currentTool = availableTools.firstWhere(
+      (element) => element.type == CanvasToolType.pencil,
+    );
   }
 
   @observable

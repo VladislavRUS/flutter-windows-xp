@@ -1,5 +1,6 @@
-import 'package:flutter_windows_xp/models/application/application.model.dart';
 import 'package:mobx/mobx.dart';
+
+import 'package:flutter_windows_xp/models/application/application.model.dart';
 
 part 'window.model.g.dart';
 

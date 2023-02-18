@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/components/startup_bar/startup_toolbar/toolbar_icons.dart';
 
+import 'package:flutter_windows_xp/components/startup_bar/startup_toolbar/toolbar_icons.dart';
 import 'toolbar_time.dart';
 
 class StartupToolbar extends StatelessWidget {

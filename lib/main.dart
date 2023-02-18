@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/screens/app/app.dart';
+
 import 'package:provider/provider.dart';
 import 'package:tap_canvas/tap_canvas.dart';
 
+import 'package:flutter_windows_xp/screens/app/app.dart';
 import 'stores/root.store.dart';
 
 void main() {

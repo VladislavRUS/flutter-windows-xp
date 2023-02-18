@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:flutter_windows_xp/components/startup_bar/startup_bar.dart';
-
 import 'desktop_renderer/desktop_renderer.dart';
 import 'windows_renderer/windows_renderer.dart';
 

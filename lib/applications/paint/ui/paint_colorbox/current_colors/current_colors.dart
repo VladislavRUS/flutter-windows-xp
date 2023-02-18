@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_colorbox/current_colors/color_box_current/color_box_current.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
-import 'package:provider/provider.dart';
-
 import '../color_box_shadow/color_box_shadow.dart';
 
 class CurrentColors extends StatelessWidget {

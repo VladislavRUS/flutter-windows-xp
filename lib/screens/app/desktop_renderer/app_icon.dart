@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/models/application/application.model.dart';
-import 'package:flutter_windows_xp/stores/root.store.dart';
+
 import 'package:provider/provider.dart';
 import 'package:tap_canvas/tap_canvas.dart';
+
+import 'package:flutter_windows_xp/models/application/application.model.dart';
+import 'package:flutter_windows_xp/stores/root.store.dart';
 
 class AppIcon extends StatefulWidget {
   final ApplicationModel application;

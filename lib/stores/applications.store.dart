@@ -1,10 +1,10 @@
+import 'package:mobx/mobx.dart';
+
 import 'package:flutter_windows_xp/applications/notepad/notepad.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:flutter_windows_xp/models/application/application.model.dart';
 import 'package:flutter_windows_xp/utils/short_id.dart';
-import 'package:mobx/mobx.dart';
-
 import 'root.store.dart';
 
 part 'applications.store.g.dart';

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:flutter_windows_xp/components/hovered/hovered.dart';
 import 'package:flutter_windows_xp/components/window/window.store.dart';
-import 'package:provider/provider.dart';
 
 class HeaderActionButtons extends StatelessWidget {
   const HeaderActionButtons({Key? key}) : super(key: key);

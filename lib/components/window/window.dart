@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:tap_canvas/tap_canvas.dart';
+
 import 'package:flutter_windows_xp/common/constants.dart';
 import 'package:flutter_windows_xp/components/window/app_window/app_window.dart';
 import 'package:flutter_windows_xp/components/window/resizable/resizable.dart';
 import 'package:flutter_windows_xp/components/window/window.store.dart';
 import 'package:flutter_windows_xp/models/window/window.model.dart';
 import 'package:flutter_windows_xp/stores/root.store.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
-import 'package:tap_canvas/tap_canvas.dart';
 
 class Window extends StatefulWidget {
   final WindowModel window;
