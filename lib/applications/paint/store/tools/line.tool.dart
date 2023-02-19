@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
-import 'package:mobx/mobx.dart';
-
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
+import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:mobx/mobx.dart';
 
-part 'eraser.tool.g.dart';
+part 'line.tool.g.dart';
 
-class EraserTool = EraserToolBase with _$EraserTool;
+class LineTool = LineToolBase with _$LineTool;
 
-abstract class EraserToolBase extends CanvasTool with Store {
-  EraserToolBase(PaintStoreBase paintStore)
+abstract class LineToolBase extends CanvasTool with Store {
+  LineToolBase(PaintStoreBase paintStore)
       : super(
           paintStore,
-          type: CanvasToolType.eraser,
-          iconPath: Assets.apps.paint.toolEraser.path,
+          type: CanvasToolType.line,
+          iconPath: Assets.apps.paint.toolLine.path,
         );
 
   @observable
-  double size = 4;
+  double size = 2;
 
-  final availableSizes = <double>[4, 6, 8, 10];
+  final availableSizes = <double>[2, 3, 4, 5, 6];
 
   @override
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
@@ -31,10 +30,10 @@ abstract class EraserToolBase extends CanvasTool with Store {
           Offset(
             details.localPosition.dx,
             details.localPosition.dy,
-          )
+          ),
         ],
         paint: Paint()
-          ..color = paintStore.colorsStore.secondaryColor
+          ..color = paintStore.colorsStore.primaryColor
           ..strokeWidth = size
           ..strokeCap = StrokeCap.round,
         type: DrawingType.path,
@@ -47,6 +46,10 @@ abstract class EraserToolBase extends CanvasTool with Store {
     final currentDrawing = drawings.last;
 
     final path = currentDrawing.path!;
+
+    if (path.length > 1) {
+      path.removeLast();
+    }
 
     path.add(
       Offset(

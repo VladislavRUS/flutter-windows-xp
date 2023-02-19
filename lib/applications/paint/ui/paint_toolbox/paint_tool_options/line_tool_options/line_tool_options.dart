@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/eraser.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/line.tool.dart';
 
 import '../option_box/option_box.dart';
 
-class EraserToolOptions extends StatelessWidget {
-  final EraserTool tool;
+class LineToolOptions extends StatelessWidget {
+  final LineTool tool;
 
-  const EraserToolOptions({
+  const LineToolOptions({
     Key? key,
     required this.tool,
   }) : super(key: key);
@@ -24,10 +24,12 @@ class EraserToolOptions extends StatelessWidget {
                 onTap: () => tool.onSelectSize(size),
                 selected: tool.size == size,
                 child: Center(
-                  child: Container(
-                    width: size,
-                    height: size,
-                    color: tool.size == size ? Colors.white : Colors.black,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: Container(
+                      height: size,
+                      color: tool.size == size ? Colors.white : Colors.black,
+                    ),
                   ),
                 ),
               ),
