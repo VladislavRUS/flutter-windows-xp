@@ -10,7 +10,7 @@ part 'rounded.tool.g.dart';
 class RoundedTool = RoundedToolBase with _$RoundedTool;
 
 abstract class RoundedToolBase extends CanvasTool with Store {
-  final double _borderWidth = 2;
+  final double _borderWidth = 1;
   final double _borderRadius = 10;
 
   Offset? _startPosition;

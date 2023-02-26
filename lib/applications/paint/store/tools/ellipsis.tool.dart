@@ -10,7 +10,7 @@ part 'ellipsis.tool.g.dart';
 class EllipsisTool = EllipsisToolBase with _$EllipsisTool;
 
 abstract class EllipsisToolBase extends CanvasTool with Store {
-  final double _borderWidth = 2;
+  final double _borderWidth = 1;
 
   Offset? _startPosition;
 

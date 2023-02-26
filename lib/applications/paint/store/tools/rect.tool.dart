@@ -10,7 +10,7 @@ part 'rect.tool.g.dart';
 class RectTool = RectToolBase with _$RectTool;
 
 abstract class RectToolBase extends CanvasTool with Store {
-  final double _borderWidth = 2;
+  final double _borderWidth = 1;
 
   Offset? _startPosition;
   int? prevGeneratedLength;
