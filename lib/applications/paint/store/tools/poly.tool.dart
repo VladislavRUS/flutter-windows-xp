@@ -5,16 +5,16 @@ import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.da
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:mobx/mobx.dart';
 
-part 'line.tool.g.dart';
+part 'poly.tool.g.dart';
 
-class LineTool = LineToolBase with _$LineTool;
+class PolyTool = PolyToolBase with _$PolyTool;
 
-abstract class LineToolBase extends CanvasTool with Store {
-  LineToolBase(PaintStoreBase paintStore)
+abstract class PolyToolBase extends CanvasTool with Store {
+  PolyToolBase(PaintStoreBase paintStore)
       : super(
           paintStore,
-          type: CanvasToolType.line,
-          iconPath: Assets.apps.paint.toolLine.path,
+          type: CanvasToolType.poly,
+          iconPath: Assets.apps.paint.toolPoly.path,
         );
 
   @observable
@@ -22,12 +22,29 @@ abstract class LineToolBase extends CanvasTool with Store {
 
   final availableSizes = <double>[1, 2, 3, 4, 5];
 
+  bool _wasTouched = false;
+
   @override
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
     final paint = Paint()
       ..color = paintStore.colorsStore.primaryColor
       ..strokeWidth = size
       ..strokeCap = StrokeCap.round;
+
+    if (_wasTouched) {
+      final currentDrawing = drawings.last as PointsDrawingModel;
+
+      currentDrawing.setPaint(paint);
+
+      currentDrawing.points.add(
+        Offset(
+          details.localPosition.dx,
+          details.localPosition.dy,
+        ),
+      );
+
+      return;
+    }
 
     drawings.add(
       PointsDrawingModel(
@@ -44,6 +61,8 @@ abstract class LineToolBase extends CanvasTool with Store {
         paint: paint,
       ),
     );
+
+    _wasTouched = true;
   }
 
   @override
@@ -72,5 +91,7 @@ abstract class LineToolBase extends CanvasTool with Store {
   void onSelected() {}
 
   @override
-  void onDeselected() {}
+  void onDeselected() {
+    _wasTouched = false;
+  }
 }

@@ -1,7 +1,11 @@
 import 'package:flutter/painting.dart';
 
 abstract class DrawingModel {
-  final Paint paint;
+  Paint paint;
+
+  void setPaint(Paint value) {
+    paint = value;
+  }
 
   DrawingModel({
     required this.paint,

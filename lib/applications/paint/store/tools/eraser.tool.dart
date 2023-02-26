@@ -62,4 +62,10 @@ abstract class EraserToolBase extends CanvasTool with Store {
   void onSelectSize(double value) {
     size = value;
   }
+
+  @override
+  void onSelected() {}
+
+  @override
+  void onDeselected() {}
 }

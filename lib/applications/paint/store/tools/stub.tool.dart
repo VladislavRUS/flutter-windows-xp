@@ -19,4 +19,10 @@ class StubTool extends CanvasTool {
 
   @override
   void onUpdate(List<DrawingModel> drawings, DragUpdateDetails details) {}
+
+  @override
+  void onSelected() {}
+
+  @override
+  void onDeselected() {}
 }

@@ -124,6 +124,12 @@ abstract class RectToolBase extends CanvasTool with Store {
   void onSelectType(RectToolStyle value) {
     style = value;
   }
+
+  @override
+  void onSelected() {}
+
+  @override
+  void onDeselected() {}
 }
 
 enum RectToolStyle {

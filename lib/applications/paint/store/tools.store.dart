@@ -1,5 +1,6 @@
 import 'package:flutter_windows_xp/applications/paint/store/tools/ellipsis.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/fill.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/poly.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/rounded.tool.dart';
 import 'package:mobx/mobx.dart';
@@ -69,10 +70,8 @@ abstract class ToolsStoreBase with Store {
       RectTool(
         paintStore,
       ),
-      StubTool(
+      PolyTool(
         paintStore,
-        type: CanvasToolType.poly,
-        iconPath: Assets.apps.paint.toolPoly.path,
       ),
       EllipsisTool(
         paintStore,
@@ -89,7 +88,15 @@ abstract class ToolsStoreBase with Store {
 
   @action
   void setCurrentTool(CanvasTool tool) {
+    final prevTool = currentTool;
+
     currentTool = tool;
+
+    if (prevTool != null) {
+      prevTool.onDeselected();
+    }
+
+    currentTool?.onSelected();
   }
 
   bool isToolSelected(CanvasTool tool) {

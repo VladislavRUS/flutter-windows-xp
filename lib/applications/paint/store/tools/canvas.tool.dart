@@ -16,6 +16,9 @@ abstract class CanvasTool {
   void onStart(List<DrawingModel> drawings, DragStartDetails details);
   void onUpdate(List<DrawingModel> drawings, DragUpdateDetails details);
   void onEnd(List<DrawingModel> drawings, DragEndDetails details);
+
+  void onSelected();
+  void onDeselected();
 }
 
 enum CanvasToolType {

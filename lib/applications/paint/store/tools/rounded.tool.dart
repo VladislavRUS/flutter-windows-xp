@@ -139,6 +139,12 @@ abstract class RoundedToolBase extends CanvasTool with Store {
   void onSelectType(RoundedToolStyle value) {
     style = value;
   }
+
+  @override
+  void onSelected() {}
+
+  @override
+  void onDeselected() {}
 }
 
 enum RoundedToolStyle {

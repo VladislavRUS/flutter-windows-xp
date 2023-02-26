@@ -49,14 +49,10 @@ class PickerTool extends CanvasTool {
     Uint8List bytes,
     Offset position,
   ) async {
-    final start = DateTime.now();
-
     final canvasSize = (paintStore.canvasStore.canvasKey.currentContext
         ?.findRenderObject()
         ?.paintBounds
         .size)!;
-
-    final end = DateTime.now();
 
     final dx = position.dx.toInt();
     final dy = position.dy.toInt();
@@ -67,8 +63,12 @@ class PickerTool extends CanvasTool {
 
     final rgba = bytes.sublist(startIndex, startIndex + 3);
 
-    print('Time: ${end.difference(start).inMilliseconds}ms');
-
     return Color.fromARGB(255, rgba[0], rgba[1], rgba[2]);
   }
+
+  @override
+  void onSelected() {}
+
+  @override
+  void onDeselected() {}
 }

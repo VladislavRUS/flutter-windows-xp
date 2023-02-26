@@ -6,9 +6,11 @@ import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart'
 
 class CanvasPainter extends CustomPainter {
   final List<DrawingModel> drawings;
+  final bool Function(List<DrawingModel>, List<DrawingModel>) repaintWhen;
 
   CanvasPainter({
     required this.drawings,
+    required this.repaintWhen,
   });
 
   @override
@@ -37,7 +39,7 @@ class CanvasPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+  bool shouldRepaint(CanvasPainter oldDelegate) {
+    return repaintWhen(oldDelegate.drawings, drawings);
   }
 }

@@ -126,6 +126,12 @@ abstract class EllipsisToolBase extends CanvasTool with Store {
   void onSelectType(EllipsisToolStyle value) {
     style = value;
   }
+
+  @override
+  void onSelected() {}
+
+  @override
+  void onDeselected() {}
 }
 
 enum EllipsisToolStyle {

@@ -26,4 +26,10 @@ class FillTool extends CanvasTool {
 
   @override
   void onEnd(List<DrawingModel> drawings, DragEndDetails details) {}
+
+  @override
+  void onSelected() {}
+
+  @override
+  void onDeselected() {}
 }

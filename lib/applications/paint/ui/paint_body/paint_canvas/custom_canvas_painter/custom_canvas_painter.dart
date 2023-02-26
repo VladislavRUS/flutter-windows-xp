@@ -30,9 +30,12 @@ class _CustomCanvasPainterState extends State<CustomCanvasPainter> {
             drawings: canvasStore.currentDrawing != null
                 ? [canvasStore.currentDrawing!]
                 : [],
+            repaintWhen: (_, __) => true,
           ),
           painter: CanvasPainter(
             drawings: canvasStore.drawings,
+            repaintWhen: (previous, current) =>
+                previous.length != current.length,
           ),
         ),
       ),
