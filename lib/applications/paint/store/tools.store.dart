@@ -1,4 +1,5 @@
 import 'package:flutter_windows_xp/applications/paint/store/tools/fill.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
@@ -63,10 +64,8 @@ abstract class ToolsStoreBase with Store {
       LineTool(
         paintStore,
       ),
-      StubTool(
+      RectTool(
         paintStore,
-        type: CanvasToolType.rect,
-        iconPath: Assets.apps.paint.toolRect.path,
       ),
       StubTool(
         paintStore,

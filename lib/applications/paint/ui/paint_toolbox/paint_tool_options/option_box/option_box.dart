@@ -23,7 +23,10 @@ class OptionBox extends StatelessWidget {
               : Colors.transparent,
         ),
         child: Center(
-          child: child,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+            child: child,
+          ),
         ),
       ),
     );

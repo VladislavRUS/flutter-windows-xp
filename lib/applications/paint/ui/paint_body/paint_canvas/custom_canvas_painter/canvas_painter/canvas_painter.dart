@@ -14,33 +14,22 @@ class CanvasPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     for (final drawing in drawings) {
-      switch (drawing.type) {
-        case DrawingType.background:
-          {
-            _paintBackground(canvas, size, drawing.paint);
-            break;
-          }
-        case DrawingType.path:
-          {
-            _paintPath(canvas, drawing.path!, drawing.paint);
-            break;
-          }
-
-        case DrawingType.fill:
-          {
-            _paintFill(canvas, size, drawing.paint);
-            break;
-          }
+      if (drawing is PathDrawingModel) {
+        _paintPath(canvas, drawing.path, drawing.paint);
+      } else if (drawing is PointsDrawingModel) {
+        _paintPoints(canvas, drawing.points, drawing.paint);
+      } else if (drawing is FillDrawingModel) {
+        _paintFill(canvas, size, drawing.paint);
       }
     }
   }
 
-  void _paintPath(Canvas canvas, List<Offset> path, Paint paint) {
-    canvas.drawPoints(PointMode.polygon, path, paint);
+  void _paintPath(Canvas canvas, Path path, Paint paint) {
+    canvas.drawPath(path, paint);
   }
 
-  void _paintBackground(Canvas canvas, Size size, Paint paint) {
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint);
+  void _paintPoints(Canvas canvas, List<Offset> points, Paint paint) {
+    canvas.drawPoints(PointMode.polygon, points, paint);
   }
 
   void _paintFill(Canvas canvas, Size size, Paint paint) {

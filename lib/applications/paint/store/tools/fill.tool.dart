@@ -15,9 +15,8 @@ class FillTool extends CanvasTool {
   @override
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
     drawings.add(
-      DrawingModel(
+      FillDrawingModel(
         paint: Paint()..color = paintStore.colorsStore.primaryColor,
-        type: DrawingType.fill,
       ),
     );
   }

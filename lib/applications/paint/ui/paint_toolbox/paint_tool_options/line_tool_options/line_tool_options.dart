@@ -24,12 +24,9 @@ class LineToolOptions extends StatelessWidget {
                 onTap: () => tool.onSelectSize(size),
                 selected: tool.size == size,
                 child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: Container(
-                      height: size,
-                      color: tool.size == size ? Colors.white : Colors.black,
-                    ),
+                  child: Container(
+                    height: size,
+                    color: tool.size == size ? Colors.white : Colors.black,
                   ),
                 ),
               ),

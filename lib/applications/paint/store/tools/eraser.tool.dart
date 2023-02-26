@@ -25,30 +25,29 @@ abstract class EraserToolBase extends CanvasTool with Store {
 
   @override
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
+    final paint = Paint()
+      ..color = paintStore.colorsStore.secondaryColor
+      ..strokeWidth = size
+      ..strokeCap = StrokeCap.round;
+
     drawings.add(
-      DrawingModel(
-        path: [
+      PointsDrawingModel(
+        points: [
           Offset(
             details.localPosition.dx,
             details.localPosition.dy,
-          )
+          ),
         ],
-        paint: Paint()
-          ..color = paintStore.colorsStore.secondaryColor
-          ..strokeWidth = size
-          ..strokeCap = StrokeCap.round,
-        type: DrawingType.path,
+        paint: paint,
       ),
     );
   }
 
   @override
   void onUpdate(List<DrawingModel> drawings, DragUpdateDetails details) {
-    final currentDrawing = drawings.last;
+    final currentDrawing = drawings.last as PointsDrawingModel;
 
-    final path = currentDrawing.path!;
-
-    path.add(
+    currentDrawing.points.add(
       Offset(
         details.localPosition.dx,
         details.localPosition.dy,

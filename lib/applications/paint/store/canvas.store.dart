@@ -22,9 +22,8 @@ abstract class CanvasStoreBase with Store {
 
   CanvasStoreBase(this.paintStore) {
     drawings.add(
-      DrawingModel(
+      FillDrawingModel(
         paint: Paint()..color = Colors.white,
-        type: DrawingType.background,
       ),
     );
 
@@ -48,7 +47,7 @@ abstract class CanvasStoreBase with Store {
       details,
     );
 
-    currentDrawing = drawings.last;
+    currentDrawing = currentDrawing;
   }
 
   @action

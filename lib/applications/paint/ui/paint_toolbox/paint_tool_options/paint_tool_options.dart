@@ -5,7 +5,9 @@ import 'package:flutter_windows_xp/applications/paint/store/tools.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/eraser.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/line.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/line_tool_options/line_tool_options.dart';
+import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/rect_tool_options/rect_tool_options.dart';
 import 'package:provider/provider.dart';
 
 import 'eraser_tool_options/eraser_tool_options.dart';
@@ -42,6 +44,8 @@ class PaintToolOptions extends StatelessWidget {
         return EraserToolOptions(tool: toolsStore.currentTool as EraserTool);
       case CanvasToolType.line:
         return LineToolOptions(tool: toolsStore.currentTool as LineTool);
+      case CanvasToolType.rect:
+        return RectToolOptions(tool: toolsStore.currentTool as RectTool);
       default:
         return const SizedBox.shrink();
     }

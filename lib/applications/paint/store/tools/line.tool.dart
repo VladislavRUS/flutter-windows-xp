@@ -18,40 +18,41 @@ abstract class LineToolBase extends CanvasTool with Store {
         );
 
   @observable
-  double size = 2;
+  double size = 1;
 
-  final availableSizes = <double>[2, 3, 4, 5, 6];
+  final availableSizes = <double>[1, 2, 3, 4, 5];
 
   @override
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
+    final paint = Paint()
+      ..color = paintStore.colorsStore.primaryColor
+      ..strokeWidth = size
+      ..strokeCap = StrokeCap.round;
+
     drawings.add(
-      DrawingModel(
-        path: [
+      PointsDrawingModel(
+        points: [
+          Offset(
+            details.localPosition.dx,
+            details.localPosition.dy,
+          ),
           Offset(
             details.localPosition.dx,
             details.localPosition.dy,
           ),
         ],
-        paint: Paint()
-          ..color = paintStore.colorsStore.primaryColor
-          ..strokeWidth = size
-          ..strokeCap = StrokeCap.round,
-        type: DrawingType.path,
+        paint: paint,
       ),
     );
   }
 
   @override
   void onUpdate(List<DrawingModel> drawings, DragUpdateDetails details) {
-    final currentDrawing = drawings.last;
+    final currentDrawing = drawings.last as PointsDrawingModel;
 
-    final path = currentDrawing.path!;
+    currentDrawing.points.removeLast();
 
-    if (path.length > 1) {
-      path.removeLast();
-    }
-
-    path.add(
+    currentDrawing.points.add(
       Offset(
         details.localPosition.dx,
         details.localPosition.dy,
