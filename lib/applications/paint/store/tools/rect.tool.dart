@@ -16,7 +16,7 @@ abstract class RectToolBase extends CanvasTool with Store {
   int? prevGeneratedRectanglesLength;
 
   @observable
-  RectToolStyle style = RectToolStyle.borderFill;
+  RectToolStyle style = RectToolStyle.border;
 
   RectToolBase(PaintStoreBase paintStore)
       : super(

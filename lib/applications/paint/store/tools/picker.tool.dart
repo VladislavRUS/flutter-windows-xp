@@ -8,7 +8,6 @@ import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
-import 'package:collection/collection.dart';
 
 class PickerTool extends CanvasTool {
   Offset? _lastPosition;
@@ -32,14 +31,8 @@ class PickerTool extends CanvasTool {
 
   @override
   void onEnd(List<DrawingModel> drawings, DragEndDetails details) async {
-    final canvasBytes = await _captureCanvas();
-
-    if (canvasBytes == null) {
-      return;
-    }
-
     final pixel = await _getPixelColor(
-      canvasBytes,
+      paintStore.canvasStore.canvasBytes,
       _lastPosition!,
     );
 
@@ -56,10 +49,14 @@ class PickerTool extends CanvasTool {
     Uint8List bytes,
     Offset position,
   ) async {
+    final start = DateTime.now();
+
     final canvasSize = (paintStore.canvasStore.canvasKey.currentContext
         ?.findRenderObject()
         ?.paintBounds
         .size)!;
+
+    final end = DateTime.now();
 
     final dx = position.dx.toInt();
     final dy = position.dy.toInt();
@@ -70,22 +67,8 @@ class PickerTool extends CanvasTool {
 
     final rgba = bytes.sublist(startIndex, startIndex + 3);
 
+    print('Time: ${end.difference(start).inMilliseconds}ms');
+
     return Color.fromARGB(255, rgba[0], rgba[1], rgba[2]);
-  }
-
-  Future<Uint8List?> _captureCanvas() async {
-    final boundary = paintStore.canvasStore.canvasKey.currentContext
-        ?.findRenderObject() as RenderRepaintBoundary?;
-
-    final image = await boundary?.toImage();
-
-    final byteData = await image?.toByteData();
-
-    final bytes = byteData?.buffer.asUint8List();
-
-    // Remove every 4th byte (alpha)
-    final rgbBytes = bytes?.whereIndexed((index, _) => index % 4 != 3).toList();
-
-    return Uint8List.fromList(rgbBytes!);
   }
 }

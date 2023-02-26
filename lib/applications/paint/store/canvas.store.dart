@@ -1,5 +1,9 @@
-import 'package:flutter/material.dart';
+import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+
+import 'package:collection/collection.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
@@ -14,6 +18,8 @@ abstract class CanvasStoreBase with Store {
 
   final canvasKey = GlobalKey();
 
+  Uint8List canvasBytes = Uint8List(0);
+
   @observable
   ObservableList<DrawingModel> drawings = ObservableList.of([]);
 
@@ -21,6 +27,10 @@ abstract class CanvasStoreBase with Store {
   DrawingModel? currentDrawing;
 
   CanvasStoreBase(this.paintStore) {
+    _init();
+  }
+
+  void _init() async {
     drawings.add(
       FillDrawingModel(
         paint: Paint()..color = Colors.white,
@@ -28,6 +38,10 @@ abstract class CanvasStoreBase with Store {
     );
 
     currentDrawing = drawings.last;
+
+    await Future<void>.delayed(Duration.zero);
+
+    _captureCanvas();
   }
 
   @action
@@ -58,5 +72,29 @@ abstract class CanvasStoreBase with Store {
     );
 
     currentDrawing = null;
+
+    _captureCanvas();
+  }
+
+  Future<void> _captureCanvas() async {
+    final start = DateTime.now();
+
+    final boundary =
+        canvasKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
+
+    final image = await boundary?.toImage();
+
+    final byteData = await image?.toByteData();
+
+    final bytes = byteData?.buffer.asUint8List();
+
+    // Remove every 4th byte (alpha)
+    final rgbBytes = bytes?.whereIndexed((index, _) => index % 4 != 3).toList();
+
+    canvasBytes = Uint8List.fromList(rgbBytes!);
+
+    final end = DateTime.now();
+
+    print('Capture took ${end.difference(start).inMilliseconds}ms');
   }
 }
