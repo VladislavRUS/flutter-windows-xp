@@ -3,6 +3,7 @@ import 'package:flutter_windows_xp/applications/paint/store/tools/fill.tool.dart
 import 'package:flutter_windows_xp/applications/paint/store/tools/poly.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/rounded.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/spray.tool.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
@@ -54,10 +55,8 @@ abstract class ToolsStoreBase with Store {
       PencilTool(
         paintStore,
       ),
-      StubTool(
+      SprayTool(
         paintStore,
-        type: CanvasToolType.spray,
-        iconPath: Assets.apps.paint.toolSpray.path,
       ),
       StubTool(
         paintStore,

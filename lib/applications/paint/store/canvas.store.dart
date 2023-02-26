@@ -76,6 +76,10 @@ abstract class CanvasStoreBase with Store {
     _captureCanvas();
   }
 
+  void forceUpdate() {
+    currentDrawing = currentDrawing;
+  }
+
   Future<void> _captureCanvas() async {
     final boundary =
         canvasKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;

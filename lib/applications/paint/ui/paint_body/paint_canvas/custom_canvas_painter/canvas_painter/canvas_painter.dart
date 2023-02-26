@@ -19,7 +19,7 @@ class CanvasPainter extends CustomPainter {
       if (drawing is PathDrawingModel) {
         _paintPath(canvas, drawing.path, drawing.paint);
       } else if (drawing is PointsDrawingModel) {
-        _paintPoints(canvas, drawing.points, drawing.paint);
+        _paintPoints(canvas, drawing.pointMode, drawing.points, drawing.paint);
       } else if (drawing is FillDrawingModel) {
         _paintFill(canvas, size, drawing.paint);
       }
@@ -30,8 +30,13 @@ class CanvasPainter extends CustomPainter {
     canvas.drawPath(path, paint);
   }
 
-  void _paintPoints(Canvas canvas, List<Offset> points, Paint paint) {
-    canvas.drawPoints(PointMode.polygon, points, paint);
+  void _paintPoints(
+    Canvas canvas,
+    PointMode pointMode,
+    List<Offset> points,
+    Paint paint,
+  ) {
+    canvas.drawPoints(pointMode, points, paint);
   }
 
   void _paintFill(Canvas canvas, Size size, Paint paint) {

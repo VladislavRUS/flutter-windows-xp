@@ -1,4 +1,4 @@
-import 'package:flutter/painting.dart';
+import 'dart:ui';
 
 abstract class DrawingModel {
   Paint paint;
@@ -23,10 +23,12 @@ class PathDrawingModel extends DrawingModel {
 
 class PointsDrawingModel extends DrawingModel {
   final List<Offset> points;
+  final PointMode pointMode;
 
   PointsDrawingModel({
     required this.points,
     required Paint paint,
+    this.pointMode = PointMode.polygon,
   }) : super(paint: paint);
 }
 
