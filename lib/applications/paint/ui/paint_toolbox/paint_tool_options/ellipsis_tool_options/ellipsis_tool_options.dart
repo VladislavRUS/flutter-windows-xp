@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
+
 import 'package:flutter_windows_xp/applications/paint/store/tools/ellipsis.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/rect_tool_options/rect_tool_option.dart';
-
 import '../option_box/option_box.dart';
 
 class EllipsisToolOptions extends StatelessWidget {

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/eraser.tool.dart';
 
+import 'package:flutter_mobx/flutter_mobx.dart';
+
+import 'package:flutter_windows_xp/applications/paint/store/tools/eraser.tool.dart';
 import '../option_box/option_box.dart';
 
 class EraserToolOptions extends StatelessWidget {

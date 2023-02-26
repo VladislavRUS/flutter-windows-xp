@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+
 import 'package:mobx/mobx.dart';
 
 import 'paint.store.dart';
