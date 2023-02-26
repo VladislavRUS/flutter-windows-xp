@@ -8,12 +8,14 @@ class Tool extends StatefulWidget {
   final CanvasTool tool;
   final void Function(CanvasTool) onTap;
   final bool selected;
+  final bool disabled;
 
   const Tool({
     Key? key,
     required this.tool,
     required this.onTap,
     this.selected = false,
+    required this.disabled,
   }) : super(key: key);
 
   @override
@@ -123,44 +125,50 @@ class _ToolState extends State<Tool> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onExit: _onExit,
-      child: GestureDetector(
-        onTapDown: _onTapDown,
-        onTapUp: _onTapUp,
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Container(
-              width: 25,
-              height: 25,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                border: _border,
-                image: widget.selected
-                    ? DecorationImage(
-                        image: AssetImage(Assets.apps.paint.checker.path),
-                        repeat: ImageRepeat.repeat,
-                      )
-                    : null,
-              ),
-              child: Center(
-                child: Image.asset(
-                  widget.tool.iconPath,
-                  width: 16,
-                  height: 16,
+    return IgnorePointer(
+      ignoring: widget.disabled,
+      child: Opacity(
+        opacity: widget.disabled ? 0.5 : 1,
+        child: MouseRegion(
+          onExit: _onExit,
+          child: GestureDetector(
+            onTapDown: _onTapDown,
+            onTapUp: _onTapUp,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  width: 25,
+                  height: 25,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    border: _border,
+                    image: widget.selected
+                        ? DecorationImage(
+                            image: AssetImage(Assets.apps.paint.checker.path),
+                            repeat: ImageRepeat.repeat,
+                          )
+                        : null,
+                  ),
+                  child: Center(
+                    child: Image.asset(
+                      widget.tool.iconPath,
+                      width: 16,
+                      height: 16,
+                    ),
+                  ),
                 ),
-              ),
+                Container(
+                  width: 24,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    border: _overlayBorder,
+                  ),
+                )
+              ],
             ),
-            Container(
-              width: 24,
-              height: 24,
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-                border: _overlayBorder,
-              ),
-            )
-          ],
+          ),
         ),
       ),
     );
