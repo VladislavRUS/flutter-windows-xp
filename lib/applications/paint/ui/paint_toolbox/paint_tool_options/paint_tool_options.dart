@@ -7,9 +7,11 @@ import 'package:flutter_windows_xp/applications/paint/store/tools/ellipsis.tool.
 import 'package:flutter_windows_xp/applications/paint/store/tools/eraser.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/line.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/rounded.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/ellipsis_tool_options/ellipsis_tool_options.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/line_tool_options/line_tool_options.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/rect_tool_options/rect_tool_options.dart';
+import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/rounded_tool_options/rounded_tool_options.dart';
 import 'package:provider/provider.dart';
 
 import 'eraser_tool_options/eraser_tool_options.dart';
@@ -51,6 +53,10 @@ class PaintToolOptions extends StatelessWidget {
       case CanvasToolType.ellipsis:
         return EllipsisToolOptions(
           tool: toolsStore.currentTool as EllipsisTool,
+        );
+      case CanvasToolType.rounded:
+        return RoundedToolOptions(
+          tool: toolsStore.currentTool as RoundedTool,
         );
 
       default:

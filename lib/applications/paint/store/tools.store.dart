@@ -1,6 +1,7 @@
 import 'package:flutter_windows_xp/applications/paint/store/tools/ellipsis.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/fill.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/rounded.tool.dart';
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
@@ -76,10 +77,8 @@ abstract class ToolsStoreBase with Store {
       EllipsisTool(
         paintStore,
       ),
-      StubTool(
+      RoundedTool(
         paintStore,
-        type: CanvasToolType.rounded,
-        iconPath: Assets.apps.paint.toolRounded.path,
       ),
     ]);
 
