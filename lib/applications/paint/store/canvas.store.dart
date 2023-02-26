@@ -77,8 +77,6 @@ abstract class CanvasStoreBase with Store {
   }
 
   Future<void> _captureCanvas() async {
-    final start = DateTime.now();
-
     final boundary =
         canvasKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
 
@@ -92,9 +90,5 @@ abstract class CanvasStoreBase with Store {
     final rgbBytes = bytes?.whereIndexed((index, _) => index % 4 != 3).toList();
 
     canvasBytes = Uint8List.fromList(rgbBytes!);
-
-    final end = DateTime.now();
-
-    print('Capture took ${end.difference(start).inMilliseconds}ms');
   }
 }

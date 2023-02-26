@@ -3,9 +3,11 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/store/tools/ellipsis.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/eraser.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/line.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/ellipsis_tool_options/ellipsis_tool_options.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/line_tool_options/line_tool_options.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/rect_tool_options/rect_tool_options.dart';
 import 'package:provider/provider.dart';
@@ -46,6 +48,11 @@ class PaintToolOptions extends StatelessWidget {
         return LineToolOptions(tool: toolsStore.currentTool as LineTool);
       case CanvasToolType.rect:
         return RectToolOptions(tool: toolsStore.currentTool as RectTool);
+      case CanvasToolType.ellipsis:
+        return EllipsisToolOptions(
+          tool: toolsStore.currentTool as EllipsisTool,
+        );
+
       default:
         return const SizedBox.shrink();
     }

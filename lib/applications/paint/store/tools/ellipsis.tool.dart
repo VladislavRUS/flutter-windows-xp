@@ -5,60 +5,61 @@ import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.da
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:mobx/mobx.dart';
 
-part 'rect.tool.g.dart';
+part 'ellipsis.tool.g.dart';
 
-class RectTool = RectToolBase with _$RectTool;
+class EllipsisTool = EllipsisToolBase with _$EllipsisTool;
 
-abstract class RectToolBase extends CanvasTool with Store {
+abstract class EllipsisToolBase extends CanvasTool with Store {
   final double _borderWidth = 2;
 
   Offset? _startPosition;
+
   int? prevGeneratedLength;
 
   @observable
-  RectToolStyle style = RectToolStyle.border;
+  EllipsisToolStyle style = EllipsisToolStyle.border;
 
-  RectToolBase(PaintStoreBase paintStore)
+  EllipsisToolBase(PaintStoreBase paintStore)
       : super(
           paintStore,
-          type: CanvasToolType.rect,
-          iconPath: Assets.apps.paint.toolRect.path,
+          type: CanvasToolType.ellipsis,
+          iconPath: Assets.apps.paint.toolEllipsis.path,
         );
 
   @override
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
     _startPosition = details.localPosition;
 
-    final rectDrawings = _getRectDrawings(
+    final ellipsisDrawings = _getEllipsisDrawings(
       _startPosition!,
       details.localPosition,
       style,
     );
 
-    drawings.addAll(rectDrawings);
+    drawings.addAll(ellipsisDrawings);
   }
 
   @override
   void onUpdate(List<DrawingModel> drawings, DragUpdateDetails details) {
-    final rectDrawings = _getRectDrawings(
+    final ellipsisDrawings = _getEllipsisDrawings(
       _startPosition!,
       details.localPosition,
       style,
     );
 
-    for (var i = 0; i < rectDrawings.length; i++) {
-      final drawing = drawings[drawings.length - rectDrawings.length + i]
+    for (var i = 0; i < ellipsisDrawings.length; i++) {
+      final drawing = drawings[drawings.length - ellipsisDrawings.length + i]
           as PathDrawingModel;
 
       drawing.path.reset();
-      drawing.path.addPath(rectDrawings[i].path, Offset.zero);
+      drawing.path.addPath(ellipsisDrawings[i].path, Offset.zero);
     }
   }
 
-  List<PathDrawingModel> _getRectDrawings(
+  List<PathDrawingModel> _getEllipsisDrawings(
     Offset start,
     Offset end,
-    RectToolStyle style,
+    EllipsisToolStyle style,
   ) {
     final drawings = <PathDrawingModel>[];
 
@@ -73,7 +74,7 @@ abstract class RectToolBase extends CanvasTool with Store {
       ),
     );
 
-    final path = Path()..addRect(rect);
+    final path = Path()..addOval(rect);
 
     final paint = Paint()
       ..color = paintStore.colorsStore.primaryColor
@@ -89,13 +90,14 @@ abstract class RectToolBase extends CanvasTool with Store {
       ),
     );
 
-    if (style == RectToolStyle.borderFill || style == RectToolStyle.fill) {
-      final innerRect = rect.inflate(-_borderWidth / 2);
+    if (style == EllipsisToolStyle.borderFill ||
+        style == EllipsisToolStyle.fill) {
+      final innerEllipsis = rect.inflate(-_borderWidth / 2);
 
-      final path = Path()..addRect(innerRect);
+      final path = Path()..addOval(innerEllipsis);
 
       final paint = Paint()
-        ..color = style == RectToolStyle.borderFill
+        ..color = style == EllipsisToolStyle.borderFill
             ? paintStore.colorsStore.secondaryColor
             : paintStore.colorsStore.primaryColor
         ..strokeWidth = _borderWidth
@@ -121,12 +123,12 @@ abstract class RectToolBase extends CanvasTool with Store {
   }
 
   @action
-  void onSelectType(RectToolStyle value) {
+  void onSelectType(EllipsisToolStyle value) {
     style = value;
   }
 }
 
-enum RectToolStyle {
+enum EllipsisToolStyle {
   border,
   borderFill,
   fill,

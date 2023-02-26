@@ -1,3 +1,4 @@
+import 'package:flutter_windows_xp/applications/paint/store/tools/ellipsis.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/fill.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
 import 'package:mobx/mobx.dart';
@@ -72,10 +73,8 @@ abstract class ToolsStoreBase with Store {
         type: CanvasToolType.poly,
         iconPath: Assets.apps.paint.toolPoly.path,
       ),
-      StubTool(
+      EllipsisTool(
         paintStore,
-        type: CanvasToolType.ellipsis,
-        iconPath: Assets.apps.paint.toolEllipsis.path,
       ),
       StubTool(
         paintStore,
