@@ -17,7 +17,9 @@ class _NotepadState extends State<Notepad> {
   void initState() {
     super.initState();
 
-    context.read<WindowStore>().setName('Untitled - Notepad');
+    context.read<WindowStore>()
+      ..setSize(800, 600)
+      ..setName('Untitled - Notepad');
   }
 
   @override

@@ -17,7 +17,15 @@ class DesktopRenderer extends StatelessWidget {
       child: ListView.separated(
         itemBuilder: (_, index) => Row(
           children: [
-            AppIcon(application: applicationsStore.applications[index]),
+            SizedBox(
+              width: 100,
+              height: 60,
+              child: Center(
+                child: AppIcon(
+                  application: applicationsStore.applications[index],
+                ),
+              ),
+            ),
           ],
         ),
         separatorBuilder: (_, __) => const SizedBox(

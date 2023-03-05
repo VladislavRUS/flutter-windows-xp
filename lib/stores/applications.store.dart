@@ -1,9 +1,11 @@
 import 'package:mobx/mobx.dart';
 
+import 'package:flutter_windows_xp/applications/minesweeper/ui/minesweeper.dart';
 import 'package:flutter_windows_xp/applications/notepad/notepad.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:flutter_windows_xp/models/application/application.model.dart';
+import 'package:flutter_windows_xp/models/window_properties/window_properties.model.dart';
 import 'package:flutter_windows_xp/utils/short_id.dart';
 import 'root.store.dart';
 
@@ -29,6 +31,15 @@ abstract class ApplicationsStoreBase with Store {
       name: 'Paint',
       icon: Assets.apps.paint.paint.path,
       widget: const Paint(),
+    ),
+    ApplicationModel(
+      id: shortId(),
+      name: 'Minesweeper',
+      icon: Assets.apps.minesweeper.minesweeper.path,
+      widget: const Minesweeper(),
+      windowProperties: WindowPropertiesModel(
+        isMaximizable: false,
+      ),
     ),
   ];
 

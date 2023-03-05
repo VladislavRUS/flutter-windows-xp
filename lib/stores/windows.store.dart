@@ -35,6 +35,7 @@ abstract class WindowsStoreBase with Store {
         id: windows.length.toString(),
         application: app,
         zIndex: windows.length,
+        properties: app.windowProperties,
       ),
     );
   }

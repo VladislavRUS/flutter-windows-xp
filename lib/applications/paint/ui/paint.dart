@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'package:flutter_windows_xp/components/window/window.store.dart';
 import 'paint_body/paint_body.dart';
 import 'paint_colorbox/paint_colorbox.dart';
 import 'paint_status_bar/paint_status_bar.dart';
@@ -21,6 +22,8 @@ class _PaintState extends State<Paint> {
   @override
   void initState() {
     super.initState();
+
+    context.read<WindowStore>().setSize(800, 600);
 
     _paintStore = PaintStore();
   }

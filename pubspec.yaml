@@ -54,6 +54,7 @@ flutter:
     - assets/icons/
     - assets/apps/paint/
     - assets/apps/notepad/
+    - assets/apps/minesweeper/
 
 
 import_sorter:

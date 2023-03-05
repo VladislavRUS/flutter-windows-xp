@@ -84,6 +84,10 @@ abstract class CanvasStoreBase with Store {
     final boundary =
         canvasKey.currentContext?.findRenderObject() as RenderRepaintBoundary?;
 
+    if (boundary?.debugNeedsPaint == true) {
+      return;
+    }
+
     final image = await boundary?.toImage();
 
     final byteData = await image?.toByteData();

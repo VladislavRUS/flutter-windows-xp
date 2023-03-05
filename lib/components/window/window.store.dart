@@ -41,6 +41,12 @@ abstract class WindowStoreBase with Store {
     this.name = name;
   }
 
+  @action
+  void setSize(double width, double height) {
+    window.width = width;
+    window.height = height;
+  }
+
   bool _checkSize(double nextWidth, double nextHeight) {
     if (nextWidth < _minWidth) {
       return false;

@@ -1,6 +1,7 @@
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_windows_xp/models/application/application.model.dart';
+import 'package:flutter_windows_xp/models/window_properties/window_properties.model.dart';
 
 part 'window.model.g.dart';
 
@@ -11,9 +12,9 @@ abstract class _WindowModel with Store {
   final ApplicationModel application;
   int zIndex;
   @observable
-  double width = 800;
+  double width = 0;
   @observable
-  double height = 500;
+  double height = 0;
   @observable
   double top = 100;
   @observable
@@ -25,9 +26,12 @@ abstract class _WindowModel with Store {
   @observable
   bool hidden = false;
 
+  final WindowPropertiesModel? properties;
+
   _WindowModel({
     required this.id,
     required this.application,
     required this.zIndex,
+    this.properties,
   });
 }
