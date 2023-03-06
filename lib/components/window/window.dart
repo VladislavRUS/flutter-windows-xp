@@ -83,18 +83,22 @@ class _WindowState extends State<Window> {
                         const SizedBox(
                           width: 3,
                         ),
-                        Text(
-                          windowStore.name,
-                          style: GoogleFonts.notoSans(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            shadows: const [
-                              BoxShadow(
-                                color: Colors.black,
-                                offset: Offset(1, 1),
-                              ),
-                            ],
+                        Expanded(
+                          child: Text(
+                            windowStore.name,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: GoogleFonts.notoSans(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              shadows: const [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  offset: Offset(1, 1),
+                                ),
+                              ],
+                            ),
                           ),
                         )
                       ],

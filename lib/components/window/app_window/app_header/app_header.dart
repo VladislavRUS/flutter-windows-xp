@@ -28,7 +28,7 @@ class AppHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                header,
+                Expanded(child: header),
                 const Spacer(),
                 Opacity(
                   opacity: focused ? 1 : 0.6,

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'package:flutter_windows_xp/applications/minesweeper/store/minesweeper.store.dart';
+import 'package:flutter_windows_xp/applications/minesweeper/core/theme/minesweeper_theme.dart';
+import 'package:flutter_windows_xp/applications/minesweeper/data/stores/minesweeper.store.dart';
 import 'package:flutter_windows_xp/components/window/window.store.dart';
+import 'minesweeper_content/minesweeper_content.dart';
 
 class Minesweeper extends StatefulWidget {
   const Minesweeper({Key? key}) : super(key: key);
@@ -20,17 +22,19 @@ class _MinesweeperState extends State<Minesweeper> {
     super.initState();
 
     final windowStore = context.read<WindowStore>();
+    windowStore.setName('Minesweeper');
 
     _minesweeperStore = MinesweeperStore(windowStore);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Provider.value(
-      value: _minesweeperStore,
-      child: Container(
-        color: Colors.white,
-      ),
+    return MultiProvider(
+      providers: [
+        Provider.value(value: _minesweeperStore),
+        Provider.value(value: minesweeperTheme),
+      ],
+      child: const MinesweeperContent(),
     );
   }
 }
