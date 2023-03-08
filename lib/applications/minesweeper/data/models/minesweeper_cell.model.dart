@@ -32,6 +32,9 @@ abstract class MinesweeperCellModelBase with Store {
   @observable
   int neighbourMines;
 
+  @computed
+  bool get isWronglyFlagged => isFlagged && !isMine;
+
   MinesweeperCellModelBase({
     required this.x,
     required this.y,

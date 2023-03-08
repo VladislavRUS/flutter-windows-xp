@@ -218,6 +218,10 @@ abstract class FieldStoreBase with Store {
 
   @action
   void onRightClick(MinesweeperCellModel cell) {
+    if (cell.isRevealed) {
+      return;
+    }
+
     if (cell.isQuestionMarked) {
       cell.isQuestionMarked = false;
     } else if (cell.isFlagged) {

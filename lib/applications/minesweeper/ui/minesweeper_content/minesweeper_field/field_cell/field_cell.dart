@@ -17,8 +17,14 @@ class FieldCell extends StatelessWidget {
   }) : super(key: key);
 
   Border? _getBorder(BuildContext context) {
-    if (cell.isHovered || cell.isRevealed) {
+    if (cell.isHovered) {
       return null;
+    }
+
+    if (cell.isRevealed) {
+      if (!cell.isFlagged || !cell.isMine) {
+        return null;
+      }
     }
 
     final theme = context.read<MinesweeperTheme>();
@@ -51,7 +57,11 @@ class FieldCell extends StatelessWidget {
   }) {
     if (isRevealed) {
       if (cell.isFlagged) {
-        return Image.asset(Assets.apps.minesweeper.field.noBomb.path);
+        if (cell.isMine) {
+          return Image.asset(Assets.apps.minesweeper.field.flag.path);
+        } else {
+          return Image.asset(Assets.apps.minesweeper.field.noBomb.path);
+        }
       } else if (cell.isMine) {
         return Image.asset(Assets.apps.minesweeper.field.bomb.path);
       } else if (cell.neighbourMines == 0) {
