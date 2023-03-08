@@ -17,11 +17,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider(
       create: (_) => RootStore(),
-      builder: (_, __) => const TapCanvas(
+      builder: (_, __) => TapCanvas(
         child: MaterialApp(
           title: 'Flutter Windows XP',
-          debugShowCheckedModeBanner: false,
-          home: App(),
+          theme: ThemeData(
+            fontFamily: 'Montserrat',
+          ),
+          home: const App(),
         ),
       ),
     );
