@@ -329,10 +329,8 @@ abstract class FieldStoreBase with Store {
   }
 
   MinesweeperCellModel? getCellFromPosition(Offset position) {
-    const borderOffset = -4.0;
-
-    final x = ((position.dx + borderOffset) / cellSize).floor();
-    final y = ((position.dy + borderOffset) / cellSize).floor();
+    final x = (position.dx / cellSize).floor();
+    final y = (position.dy / cellSize).floor();
 
     if (x < 0 || y < 0) {
       return null;

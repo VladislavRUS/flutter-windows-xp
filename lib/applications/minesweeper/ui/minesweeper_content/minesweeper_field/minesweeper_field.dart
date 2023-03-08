@@ -15,42 +15,42 @@ class MinesweeperField extends StatelessWidget {
     final theme = context.read<MinesweeperTheme>();
     final fieldStore = context.read<MinesweeperStore>().fieldStore;
 
-    return Observer(
-      builder: (context) {
-        return IgnorePointer(
-          ignoring: fieldStore.isGameFinished,
-          child: GestureDetector(
-            onTapDown: (details) {
-              fieldStore.onPointerDown(details.localPosition);
-            },
-            child: Listener(
-              onPointerMove: (details) {
-                fieldStore.onPointerUpdate(details.localPosition);
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          left: BorderSide(
+            color: theme.fieldDarkSideBorder,
+            width: 3,
+          ),
+          top: BorderSide(
+            color: theme.fieldDarkSideBorder,
+            width: 3,
+          ),
+          right: BorderSide(
+            color: theme.fieldLightSideBorder,
+            width: 3,
+          ),
+          bottom: BorderSide(
+            color: theme.fieldLightSideBorder,
+            width: 3,
+          ),
+        ),
+      ),
+      child: Observer(
+        builder: (context) {
+          return IgnorePointer(
+            ignoring: fieldStore.isGameFinished,
+            child: GestureDetector(
+              onTapDown: (details) {
+                fieldStore.onPointerDown(details.localPosition);
               },
-              onPointerUp: (details) {
-                fieldStore.onPointerUp();
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    left: BorderSide(
-                      color: theme.fieldDarkSideBorder,
-                      width: 3,
-                    ),
-                    top: BorderSide(
-                      color: theme.fieldDarkSideBorder,
-                      width: 3,
-                    ),
-                    right: BorderSide(
-                      color: theme.fieldLightSideBorder,
-                      width: 3,
-                    ),
-                    bottom: BorderSide(
-                      color: theme.fieldLightSideBorder,
-                      width: 3,
-                    ),
-                  ),
-                ),
+              child: Listener(
+                onPointerMove: (details) {
+                  fieldStore.onPointerUpdate(details.localPosition);
+                },
+                onPointerUp: (details) {
+                  fieldStore.onPointerUp();
+                },
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -77,9 +77,9 @@ class MinesweeperField extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
