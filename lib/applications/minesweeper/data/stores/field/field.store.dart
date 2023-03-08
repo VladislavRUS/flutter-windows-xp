@@ -243,6 +243,7 @@ abstract class FieldStoreBase with Store {
   @action
   void initFromDifficulty(MinesweeperDifficulty difficulty) {
     isFieldTouched = false;
+    _prevPosition = null;
     gameState = MinesweeperGameState.idle;
 
     int width;
