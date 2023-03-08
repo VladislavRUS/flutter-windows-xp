@@ -18,6 +18,9 @@ abstract class ScoreStoreBase with Store {
   int flagsLeft = 0;
 
   @observable
+  int maxFlags = 0;
+
+  @observable
   int seconds = 0;
 
   Timer? _secondsTimer;
@@ -27,19 +30,65 @@ abstract class ScoreStoreBase with Store {
     flagsLeft = value;
   }
 
+  void startTimer() {
+    _secondsTimer = Timer.periodic(
+      const Duration(seconds: 1),
+      _incrementSeconds,
+    );
+  }
+
+  @action
+  void _incrementSeconds(Timer timer) {
+    seconds++;
+  }
+
+  void stopTimer() {
+    _secondsTimer?.cancel();
+  }
+
+  @action
+  void _reset() {
+    flagsLeft = 0;
+    maxFlags = 0;
+    seconds = 0;
+
+    stopTimer();
+  }
+
+  @action
+  void decrementFlagsLeft() {
+    if (flagsLeft == 0) {
+      return;
+    }
+
+    flagsLeft--;
+  }
+
+  @action
+  void incrementFlagsLeft() {
+    if (flagsLeft == maxFlags) {
+      return;
+    }
+
+    flagsLeft++;
+  }
+
   @action
   void initFromDifficulty(MinesweeperDifficulty difficulty) {
-    _secondsTimer?.cancel();
+    _reset();
 
     switch (difficulty) {
       case MinesweeperDifficulty.beginner:
         flagsLeft = 10;
+        maxFlags = 10;
         break;
       case MinesweeperDifficulty.intermediate:
         flagsLeft = 40;
+        maxFlags = 40;
         break;
       case MinesweeperDifficulty.expert:
         flagsLeft = 99;
+        maxFlags = 99;
         break;
     }
   }

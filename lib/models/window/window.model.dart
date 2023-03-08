@@ -10,7 +10,9 @@ class WindowModel = _WindowModel with _$WindowModel;
 abstract class _WindowModel with Store {
   final String id;
   final ApplicationModel application;
+  final WindowPropertiesModel? properties;
   int zIndex;
+
   @observable
   double width = 0;
   @observable
@@ -26,12 +28,10 @@ abstract class _WindowModel with Store {
   @observable
   bool hidden = false;
 
-  final WindowPropertiesModel? properties;
-
   _WindowModel({
     required this.id,
     required this.application,
+    required this.properties,
     required this.zIndex,
-    this.properties,
   });
 }

@@ -35,6 +35,11 @@ abstract class MinesweeperStoreBase with Store {
   }
 
   @action
+  void restart() {
+    startGame(difficultyStore.difficulty);
+  }
+
+  @action
   void _setWindowSizeDependingOnDifficulty(MinesweeperDifficulty difficulty) {
     switch (difficulty) {
       case MinesweeperDifficulty.beginner:

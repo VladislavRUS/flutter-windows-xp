@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter_windows_xp/applications/minesweeper/core/theme/minesweeper_theme.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/data/stores/minesweeper.store.dart';
+import 'package:flutter_windows_xp/applications/minesweeper/ui/minesweeper_content/minesweeper_score/score_face/score_face.dart';
 import 'score_digits/score_digits.dart';
 
 class MinesweeperScore extends StatelessWidget {
@@ -41,11 +42,12 @@ class MinesweeperScore extends StatelessWidget {
         builder: (_) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ScoreDigits(
                 value: scoreStore.flagsLeft,
               ),
-              const Spacer(),
+              const ScoreFace(),
               ScoreDigits(
                 value: scoreStore.seconds,
               ),

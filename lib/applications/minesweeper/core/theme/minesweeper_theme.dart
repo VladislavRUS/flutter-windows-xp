@@ -13,6 +13,20 @@ final minesweeperTheme = MinesweeperTheme(
   cellDarkSideBorder: const Color.fromRGBO(128, 128, 128, 1),
   cellInactiveBorder: const Color.fromRGBO(128, 128, 128, 1),
   scoreDigitsBorder: const Color.fromRGBO(255, 255, 255, 1),
+  scoreFaceOuterBorder: const Color.fromRGBO(128, 128, 128, 1),
+  scoreFaceInnerLightBorder: const Color.fromRGBO(245, 245, 245, 1),
+  scoreFaceInnerDarkBorder: const Color.fromRGBO(128, 128, 128, 1),
+  revealedCellColors: [
+    const Color.fromRGBO(0, 0, 255, 1),
+    const Color.fromRGBO(0, 128, 0, 1),
+    const Color.fromRGBO(255, 0, 0, 1),
+    const Color.fromRGBO(0, 0, 128, 1),
+    const Color.fromRGBO(128, 0, 0, 1),
+    const Color.fromRGBO(0, 128, 128, 1),
+    const Color.fromRGBO(0, 0, 0, 1),
+    const Color.fromRGBO(128, 128, 128, 1),
+  ],
+  lastRevealedMineColor: const Color.fromRGBO(255, 0, 0, 1),
 );
 
 class MinesweeperTheme {
@@ -28,6 +42,11 @@ class MinesweeperTheme {
   final Color cellDarkSideBorder;
   final Color cellInactiveBorder;
   final Color scoreDigitsBorder;
+  final Color scoreFaceOuterBorder;
+  final Color scoreFaceInnerLightBorder;
+  final Color scoreFaceInnerDarkBorder;
+  final List<Color> revealedCellColors;
+  final Color lastRevealedMineColor;
 
   MinesweeperTheme({
     required this.background,
@@ -42,5 +61,10 @@ class MinesweeperTheme {
     required this.cellDarkSideBorder,
     required this.cellInactiveBorder,
     required this.scoreDigitsBorder,
+    required this.scoreFaceOuterBorder,
+    required this.scoreFaceInnerLightBorder,
+    required this.scoreFaceInnerDarkBorder,
+    required this.revealedCellColors,
+    required this.lastRevealedMineColor,
   });
 }

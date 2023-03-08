@@ -56,6 +56,8 @@ flutter:
     - assets/apps/notepad/
     - assets/apps/minesweeper/
     - assets/apps/minesweeper/digits/
+    - assets/apps/minesweeper/face/
+    - assets/apps/minesweeper/field/
 
 
 import_sorter:

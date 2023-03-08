@@ -15,54 +15,71 @@ class MinesweeperField extends StatelessWidget {
     final theme = context.read<MinesweeperTheme>();
     final fieldStore = context.read<MinesweeperStore>().fieldStore;
 
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          left: BorderSide(
-            color: theme.fieldDarkSideBorder,
-            width: 3,
-          ),
-          top: BorderSide(
-            color: theme.fieldDarkSideBorder,
-            width: 3,
-          ),
-          right: BorderSide(
-            color: theme.fieldLightSideBorder,
-            width: 3,
-          ),
-          bottom: BorderSide(
-            color: theme.fieldLightSideBorder,
-            width: 3,
-          ),
-        ),
-      ),
-      child: Center(
-        child: Observer(
-          builder: (_) {
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              children: List.generate(
-                fieldStore.field.length,
-                (rowIndex) {
-                  return Row(
+    return Observer(
+      builder: (context) {
+        return IgnorePointer(
+          ignoring: fieldStore.isGameFinished,
+          child: GestureDetector(
+            onTapDown: (details) {
+              fieldStore.onStart(details.localPosition);
+            },
+            child: Listener(
+              onPointerMove: (details) {
+                fieldStore.onUpdate(details.localPosition);
+              },
+              onPointerUp: (details) {
+                fieldStore.onEnd();
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    left: BorderSide(
+                      color: theme.fieldDarkSideBorder,
+                      width: 3,
+                    ),
+                    top: BorderSide(
+                      color: theme.fieldDarkSideBorder,
+                      width: 3,
+                    ),
+                    right: BorderSide(
+                      color: theme.fieldLightSideBorder,
+                      width: 3,
+                    ),
+                    bottom: BorderSide(
+                      color: theme.fieldLightSideBorder,
+                      width: 3,
+                    ),
+                  ),
+                ),
+                child: Center(
+                  child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(
-                      fieldStore.field[rowIndex].length,
-                      (columnIndex) {
-                        final cell = fieldStore.field[rowIndex][columnIndex];
+                      fieldStore.field.length,
+                      (rowIndex) {
+                        return Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: List.generate(
+                            fieldStore.field[rowIndex].length,
+                            (columnIndex) {
+                              final cell =
+                                  fieldStore.field[rowIndex][columnIndex];
 
-                        return FieldCell(
-                          cell: cell,
+                              return FieldCell(
+                                cell: cell,
+                              );
+                            },
+                          ),
                         );
                       },
                     ),
-                  );
-                },
+                  ),
+                ),
               ),
-            );
-          },
-        ),
-      ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
