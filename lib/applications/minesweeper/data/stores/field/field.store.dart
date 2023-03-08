@@ -48,7 +48,7 @@ abstract class FieldStoreBase with Store {
   }
 
   @action
-  void onStart(Offset position) {
+  void onPointerDown(Offset position) {
     if (gameState == MinesweeperGameState.idle) {
       gameState = MinesweeperGameState.playing;
       minesweeperStore.scoreStore.startTimer();
@@ -60,7 +60,7 @@ abstract class FieldStoreBase with Store {
   }
 
   @action
-  void onUpdate(Offset position) {
+  void onPointerUpdate(Offset position) {
     if (!isFieldPressed) {
       return;
     }
@@ -86,7 +86,7 @@ abstract class FieldStoreBase with Store {
   }
 
   @action
-  void onEnd() {
+  void onPointerUp() {
     setFieldPressed(false);
     previousHoveredCell?.isHovered = false;
 
@@ -268,6 +268,18 @@ abstract class FieldStoreBase with Store {
         break;
     }
 
+    final field = _generateRandomField(width, height, numberOfBombs);
+
+    _calculateNeighbourMines(field);
+
+    setField(field);
+  }
+
+  List<List<MinesweeperCellModel>> _generateRandomField(
+    int width,
+    int height,
+    int numberOfBombs,
+  ) {
     final totalNumberOfCells = width * height;
 
     final randomIndexes =
@@ -277,7 +289,7 @@ abstract class FieldStoreBase with Store {
       numberOfBombs,
     );
 
-    final field = List.generate(
+    return List.generate(
       height,
       (y) => List.generate(
         width,
@@ -288,10 +300,9 @@ abstract class FieldStoreBase with Store {
         ),
       ),
     );
+  }
 
-    setField(field);
-
-    // Calculate neighbour mines
+  void _calculateNeighbourMines(List<List<MinesweeperCellModel>> field) {
     for (var y = 0; y < field.length; y++) {
       for (var x = 0; x < field[y].length; x++) {
         final cell = field[y][x];

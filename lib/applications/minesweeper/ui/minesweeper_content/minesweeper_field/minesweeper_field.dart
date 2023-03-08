@@ -21,14 +21,14 @@ class MinesweeperField extends StatelessWidget {
           ignoring: fieldStore.isGameFinished,
           child: GestureDetector(
             onTapDown: (details) {
-              fieldStore.onStart(details.localPosition);
+              fieldStore.onPointerDown(details.localPosition);
             },
             child: Listener(
               onPointerMove: (details) {
-                fieldStore.onUpdate(details.localPosition);
+                fieldStore.onPointerUpdate(details.localPosition);
               },
               onPointerUp: (details) {
-                fieldStore.onEnd();
+                fieldStore.onPointerUp();
               },
               child: Container(
                 decoration: BoxDecoration(
