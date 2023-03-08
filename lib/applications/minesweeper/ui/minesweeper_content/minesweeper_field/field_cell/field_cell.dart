@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
+import 'package:flutter_windows_xp/applications/minesweeper/core/enums/minesweeper_game_state.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/core/theme/minesweeper_theme.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/data/models/minesweeper_cell.model.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/data/stores/minesweeper.store.dart';
@@ -51,6 +52,7 @@ class FieldCell extends StatelessWidget {
 
   Widget? _buildChild(
     BuildContext context, {
+    required MinesweeperGameState gameState,
     required bool isFlagged,
     required bool isQuestionMarked,
     required bool isRevealed,
@@ -77,7 +79,8 @@ class FieldCell extends StatelessWidget {
           ),
         );
       }
-    } else if (isFlagged) {
+    } else if (gameState == MinesweeperGameState.won && cell.isMine ||
+        isFlagged) {
       return Image.asset(Assets.apps.minesweeper.field.flag.path);
     } else if (isQuestionMarked) {
       return Image.asset(Assets.apps.minesweeper.field.questionMark.path);
@@ -124,6 +127,7 @@ class FieldCell extends StatelessWidget {
                   child: Center(
                     child: _buildChild(
                       context,
+                      gameState: fieldStore.gameState,
                       isFlagged: cell.isFlagged,
                       isQuestionMarked: cell.isQuestionMarked,
                       isRevealed: cell.isRevealed,
