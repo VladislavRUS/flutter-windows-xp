@@ -5,8 +5,13 @@ import 'package:tap_canvas/tap_canvas.dart';
 
 import 'package:flutter_windows_xp/screens/app/app.dart';
 import 'stores/root.store.dart';
+import 'utils/preload_images.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await preloadImages();
+
   runApp(const MyApp());
 }
 
