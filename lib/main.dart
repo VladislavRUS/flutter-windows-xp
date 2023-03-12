@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       child: TapCanvas(
         child: MaterialApp(
-          title: 'Flutter Windows XP',
+          title: 'WinXP - Windows XP in Flutter',
           theme: ThemeData(
             fontFamily: 'Tahoma',
           ),
