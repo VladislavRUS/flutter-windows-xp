@@ -81430,7 +81430,7 @@ $S:0}
 A.YO.prototype={}
 A.MA.prototype={
 G(a){var s=null,r=A.a([A.aMu(new A.aac(),t.yw),A.O3(s,$.aI2(),t.QH)],t.Ds)
-return A.aAR(new A.Cg(new A.zu(B.zI,"Flutter Windows XP",A.aCc(s,"Tahoma",s),s),s),r)}}
+return A.aAR(new A.Cg(new A.zu(B.zI,"WinXP - Windows XP in Flutter",A.aCc(s,"Tahoma",s),s),s),r)}}
 A.aac.prototype={
 $1(a){var s=new A.pU()
 s.a=A.aIO(s)
