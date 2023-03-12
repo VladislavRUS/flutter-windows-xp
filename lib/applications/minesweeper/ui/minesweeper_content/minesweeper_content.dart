@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter_windows_xp/applications/minesweeper/core/theme/minesweeper_theme.dart';
 import 'minesweeper_field/minesweeper_field.dart';
+import 'minesweeper_menu/minesweeper_menu.dart';
 import 'minesweeper_score/minesweeper_score.dart';
 
 class MinesweeperContent extends StatelessWidget {
@@ -15,11 +16,9 @@ class MinesweeperContent extends StatelessWidget {
 
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Container(
-          height: 20,
-          color: theme.menuBackground,
-        ),
+        const MinesweeperMenu(),
         Expanded(
           child: Container(
             padding: const EdgeInsets.all(5),

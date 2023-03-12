@@ -33,6 +33,8 @@ dependencies:
   flutter_svg: ^1.1.5
   intl: ^0.17.0
   tuple: ^2.0.1
+  popover: ^0.2.8+2
+  menu_bar: ^0.4.1
 
 dev_dependencies:
   flutter_test:
@@ -63,18 +65,13 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-        - asset: assets/fonts/Montserrat-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Montserrat-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Montserrat-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/Montserrat-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Montserrat-ExtraBold.ttf
+        - asset: assets/fonts/montserrat/Montserrat-ExtraBold.ttf
           weight: 800
-        - asset: assets/fonts/Montserrat-Black.ttf
-          weight: 900
+
+    - family: Tahoma
+      fonts:
+        - asset: assets/fonts/tahoma/Tahoma-Regular.ttf
+          weight: 400
 
 
 import_sorter:

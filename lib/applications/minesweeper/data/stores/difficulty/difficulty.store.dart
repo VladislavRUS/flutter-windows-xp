@@ -19,4 +19,8 @@ abstract class DifficultyStoreBase with Store {
   void setDifficulty(MinesweeperDifficulty difficulty) {
     this.difficulty = difficulty;
   }
+
+  bool isCurrentDifficulty(MinesweeperDifficulty value) {
+    return difficulty == value;
+  }
 }

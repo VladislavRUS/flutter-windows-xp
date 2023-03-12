@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tap_canvas/tap_canvas.dart';
 
+import 'package:flutter_windows_xp/common/windows_theme.dart';
 import 'package:flutter_windows_xp/screens/app/app.dart';
 import 'stores/root.store.dart';
 import 'utils/preload_images.dart';
@@ -20,13 +21,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      create: (_) => RootStore(),
-      builder: (_, __) => TapCanvas(
+    return MultiProvider(
+      providers: [
+        Provider(create: (_) => RootStore()),
+        Provider.value(value: windowsTheme),
+      ],
+      child: TapCanvas(
         child: MaterialApp(
           title: 'Flutter Windows XP',
           theme: ThemeData(
-            fontFamily: 'Montserrat',
+            fontFamily: 'Tahoma',
           ),
           home: const App(),
         ),

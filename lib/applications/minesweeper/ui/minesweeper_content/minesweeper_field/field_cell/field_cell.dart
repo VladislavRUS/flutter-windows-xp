@@ -76,6 +76,7 @@ class FieldCell extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.w800,
             color: theme.revealedCellColors[cell.neighbourMines - 1],
+            fontFamily: 'Montserrat',
           ),
         );
       }
