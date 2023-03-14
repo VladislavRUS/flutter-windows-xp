@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_windows_xp/applications/minesweeper/ui/minesweeper.dart';
-import 'package:flutter_windows_xp/applications/notepad/notepad.dart';
+import 'package:flutter_windows_xp/applications/notepad/ui/notepad.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint.dart';
 import 'package:flutter_windows_xp/common/assets.gen.dart';
 import 'package:flutter_windows_xp/models/application/application.model.dart';
