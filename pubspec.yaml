@@ -32,7 +32,6 @@ dependencies:
   google_fonts: ^3.0.1
   flutter_svg: ^1.1.5
   intl: ^0.17.0
-  tuple: ^2.0.1
   popover: ^0.2.8+2
   menu_bar: ^0.4.1
   flutter_bloc: ^8.1.2
