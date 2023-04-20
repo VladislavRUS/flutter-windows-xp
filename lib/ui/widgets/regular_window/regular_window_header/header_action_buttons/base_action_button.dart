@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_windows_xp/core/theme/windows_theme.dart';
 import 'package:flutter_windows_xp/ui/widgets/hovered/hovered.dart';
 
 class BaseActionButton extends StatelessWidget {
@@ -14,6 +15,8 @@ class BaseActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = WindowsTheme.of(context).regularWindowTheme;
+
     return Hovered(
       builder: (_, hovered) {
         return GestureDetector(
@@ -22,13 +25,18 @@ class BaseActionButton extends StatelessWidget {
             width: 21,
             height: 21,
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 1),
+              border: Border.all(
+                color: theme.headerActionButtonBorder,
+                width: 1,
+              ),
               borderRadius: BorderRadius.circular(3),
             ),
             child: ClipRRect(
               child: ColorFiltered(
                 colorFilter: ColorFilter.mode(
-                  hovered ? Colors.white.withOpacity(0.15) : Colors.transparent,
+                  hovered
+                      ? theme.headerActionButtonBorder.withOpacity(0.15)
+                      : Colors.transparent,
                   BlendMode.lighten,
                 ),
                 child: child,

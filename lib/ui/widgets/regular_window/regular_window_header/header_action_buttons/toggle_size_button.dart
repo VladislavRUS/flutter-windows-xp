@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_windows_xp/core/theme/windows_theme.dart';
 import 'package:flutter_windows_xp/ui/widgets/regular_window/regular_window_header/header_action_buttons/base_action_button.dart';
 
 class ToggleSizeButton extends StatelessWidget {
@@ -14,22 +15,13 @@ class ToggleSizeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = WindowsTheme.of(context).regularWindowTheme;
+
     return BaseActionButton(
       onTap: onTap,
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: RadialGradient(
-            center: Alignment(0.9, 0.9),
-            radius: 1.4,
-            colors: [
-              Color.fromRGBO(0, 84, 233, 1),
-              Color.fromRGBO(34, 99, 213, 1),
-              Color.fromRGBO(68, 121, 228, 1),
-              Color.fromRGBO(163, 187, 236, 1),
-              Color.fromRGBO(255, 255, 255, 1)
-            ],
-            stops: [0, 0.55, 0.7, 0.9, 1],
-          ),
+        decoration: BoxDecoration(
+          gradient: theme.toggleSizeButtonGradient,
         ),
         child: Center(
           child: maximized ? _buildMinimizeIcon() : _buildMaximizeIcon(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_windows_xp/core/theme/windows_theme.dart';
 import 'base_action_button.dart';
 
 class HideButton extends StatelessWidget {
@@ -12,22 +13,13 @@ class HideButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = WindowsTheme.of(context).regularWindowTheme;
+
     return BaseActionButton(
       onTap: onTap,
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: RadialGradient(
-            center: Alignment(0.9, 0.9),
-            radius: 1.4,
-            colors: [
-              Color.fromRGBO(0, 84, 233, 1),
-              Color.fromRGBO(34, 99, 213, 1),
-              Color.fromRGBO(68, 121, 228, 1),
-              Color.fromRGBO(163, 187, 236, 1),
-              Color.fromRGBO(255, 255, 255, 1)
-            ],
-            stops: [0, 0.55, 0.7, 0.9, 1],
-          ),
+        decoration: BoxDecoration(
+          gradient: theme.hideButtonGradient,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,

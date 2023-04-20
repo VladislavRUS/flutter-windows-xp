@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tap_canvas/tap_canvas.dart';
 
+import 'package:flutter_windows_xp/core/theme/windows_theme.dart';
 import 'package:flutter_windows_xp/data/models/models.dart';
 import 'package:flutter_windows_xp/ui/screens/app/desktop_renderer/bloc/desktop_renderer_bloc.dart';
 
@@ -38,6 +39,8 @@ class _ApplicationIconState extends State<ApplicationIcon> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = WindowsTheme.of(context).startApplicationIconTheme;
+
     final desktopBloc = context.read<DesktopRendererBloc>();
 
     return TapOutsideDetectorWidget(
@@ -54,7 +57,7 @@ class _ApplicationIconState extends State<ApplicationIcon> {
               width: 30,
               height: 30,
               fit: BoxFit.contain,
-              color: _backgroundColor,
+              color: _selected ? theme.selectedBackground : null,
               colorBlendMode: BlendMode.softLight,
             ),
             const SizedBox(
@@ -65,13 +68,13 @@ class _ApplicationIconState extends State<ApplicationIcon> {
               padding: const EdgeInsets.all(2),
               child: Text(
                 widget.application.name,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 10,
-                  color: Colors.white,
+                  color: theme.nameText,
                   shadows: [
                     BoxShadow(
-                      color: Colors.black,
-                      offset: Offset(1, 1),
+                      color: theme.nameShadow,
+                      offset: const Offset(1, 1),
                     )
                   ],
                 ),

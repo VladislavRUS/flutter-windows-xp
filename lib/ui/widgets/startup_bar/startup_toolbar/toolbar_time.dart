@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:intl/intl.dart';
 
+import 'package:flutter_windows_xp/core/theme/windows_theme.dart';
+
 class ToolbarTime extends StatefulWidget {
   const ToolbarTime({Key? key}) : super(key: key);
 
@@ -40,9 +42,14 @@ class _ToolbarTimeState extends State<ToolbarTime> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = WindowsTheme.of(context).startupBarTheme;
+
     return Text(
       _time,
-      style: const TextStyle(color: Colors.white, fontSize: 11),
+      style: TextStyle(
+        color: theme.startupToolbarTime,
+        fontSize: 11,
+      ),
     );
   }
 }
