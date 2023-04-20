@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:conditional_wrap/conditional_wrap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_windows_xp/core/ioc/ioc.dart';
 import 'package:flutter_windows_xp/data/models/models.dart';
+import 'package:flutter_windows_xp/ui/widgets/maximized_positioned/maximized_positioned.dart';
 import 'bloc/window_bloc.dart';
 
 class Window extends StatefulWidget {
@@ -47,20 +47,13 @@ class _WindowState extends State<Window> {
   Widget build(BuildContext context) {
     return BlocProvider.value(
       value: _windowBloc,
-      child: WidgetWrapper(
-        wrapper: (child) {
-          if (widget.window.maximized) {
-            return Positioned.fill(child: child);
-          }
-
-          return Positioned(
-            left: widget.window.x,
-            top: widget.window.y,
-            width: widget.window.width,
-            height: widget.window.height,
-            child: widget.window.application.builder(context),
-          );
-        },
+      child: MaximizedPositioned(
+        left: widget.window.x,
+        top: widget.window.y,
+        width: widget.window.width,
+        height: widget.window.height,
+        maximized: widget.window.maximized,
+        duration: const Duration(milliseconds: 150),
         child: widget.window.application.builder(context),
       ),
     );

@@ -39,7 +39,6 @@ dependencies:
   freezed_annotation: ^2.2.0
   injectable: ^2.1.1
   get_it: ^7.2.0
-  conditional_wrap: ^3.0.0
 
 dev_dependencies:
   flutter_test:
