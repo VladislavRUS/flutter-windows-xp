@@ -5,6 +5,7 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "**/*.gen.dart"
+    - "**/*.config.dart"
   language:
     strict-inference: true
     strict-raw-types: true

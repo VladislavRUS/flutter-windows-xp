@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 class PencilTool extends CanvasTool {
   PencilTool(PaintStoreBase paintStore)
       : super(
           paintStore,
           type: CanvasToolType.pencil,
-          iconPath: Assets.apps.paint.toolPencil.path,
+          iconPath: Assets.applications.paint.toolPencil.path,
         );
 
   @override

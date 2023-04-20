@@ -5,7 +5,7 @@ import 'package:mobx/mobx.dart';
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 part 'rounded.tool.g.dart';
 
@@ -25,7 +25,7 @@ abstract class RoundedToolBase extends CanvasTool with Store {
       : super(
           paintStore,
           type: CanvasToolType.rounded,
-          iconPath: Assets.apps.paint.toolRounded.path,
+          iconPath: Assets.applications.paint.toolRounded.path,
         );
 
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart' hide MenuBar;
 
-import 'package:flutter_windows_xp/components/custom_menu/custom_menu.dart';
-import 'package:flutter_windows_xp/components/custom_menu/menu_descriptors/menu_bar_button_descriptor.dart';
-import 'package:flutter_windows_xp/components/custom_menu/menu_descriptors/menu_item_descriptor.dart';
+import 'package:flutter_windows_xp/ui/widgets/custom_menu/custom_menu.dart';
+import 'package:flutter_windows_xp/ui/widgets/custom_menu/menu_descriptors/menu_bar_button_descriptor.dart';
+import 'package:flutter_windows_xp/ui/widgets/custom_menu/menu_descriptors/menu_item_descriptor.dart';
 
 class NotepadMenu extends StatelessWidget {
   const NotepadMenu({

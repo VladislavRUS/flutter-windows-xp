@@ -9,7 +9,7 @@ import 'package:flutter_windows_xp/applications/paint/store/tools/poly.tool.dart
 import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/rounded.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/spray.tool.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 import 'tools/canvas.tool.dart';
 import 'tools/line.tool.dart';
 import 'tools/picker.tool.dart';
@@ -31,12 +31,12 @@ abstract class ToolsStoreBase with Store {
       StubTool(
         paintStore,
         type: CanvasToolType.select,
-        iconPath: Assets.apps.paint.toolSelect.path,
+        iconPath: Assets.applications.paint.toolSelect.path,
       ),
       StubTool(
         paintStore,
         type: CanvasToolType.squareSelect,
-        iconPath: Assets.apps.paint.toolSquareSelect.path,
+        iconPath: Assets.applications.paint.toolSquareSelect.path,
       ),
       EraserTool(
         paintStore,
@@ -50,7 +50,7 @@ abstract class ToolsStoreBase with Store {
       StubTool(
         paintStore,
         type: CanvasToolType.zoom,
-        iconPath: Assets.apps.paint.toolZoom.path,
+        iconPath: Assets.applications.paint.toolZoom.path,
       ),
       PencilTool(
         paintStore,
@@ -61,7 +61,7 @@ abstract class ToolsStoreBase with Store {
       StubTool(
         paintStore,
         type: CanvasToolType.text,
-        iconPath: Assets.apps.paint.toolText.path,
+        iconPath: Assets.applications.paint.toolText.path,
       ),
       LineTool(
         paintStore,

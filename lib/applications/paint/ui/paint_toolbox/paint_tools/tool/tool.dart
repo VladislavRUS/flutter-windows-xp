@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 class Tool extends StatefulWidget {
   final CanvasTool tool;
@@ -145,7 +145,9 @@ class _ToolState extends State<Tool> {
                     border: _border,
                     image: widget.selected
                         ? DecorationImage(
-                            image: AssetImage(Assets.apps.paint.checker.path),
+                            image: AssetImage(
+                              Assets.applications.paint.checker.path,
+                            ),
                             repeat: ImageRepeat.repeat,
                           )
                         : null,

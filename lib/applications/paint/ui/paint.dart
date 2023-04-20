@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
-import 'package:flutter_windows_xp/components/window/window.store.dart';
+import 'package:flutter_windows_xp/ui/widgets/regular_window/regular_window.dart';
+import 'package:flutter_windows_xp/ui/widgets/window/bloc/window_bloc.dart';
 import 'paint_body/paint_body.dart';
 import 'paint_colorbox/paint_colorbox.dart';
 import 'paint_status_bar/paint_status_bar.dart';
@@ -23,7 +24,7 @@ class _PaintState extends State<Paint> {
   void initState() {
     super.initState();
 
-    context.read<WindowStore>().setSize(800, 600);
+    context.read<WindowBloc>().setSize(width: 800, height: 600);
 
     _paintStore = PaintStore();
   }
@@ -32,22 +33,24 @@ class _PaintState extends State<Paint> {
   Widget build(BuildContext context) {
     return Provider.value(
       value: _paintStore,
-      child: Container(
-        color: Colors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: Row(
-                children: const [
-                  SizedBox(width: 56, child: PaintToolbox()),
-                  Expanded(child: PaintBody()),
-                ],
+      child: RegularWindow(
+        child: Container(
+          color: Colors.white,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: Row(
+                  children: const [
+                    SizedBox(width: 56, child: PaintToolbox()),
+                    Expanded(child: PaintBody()),
+                  ],
+                ),
               ),
-            ),
-            const PaintColorbox(),
-            const PaintStatusBar(),
-          ],
+              const PaintColorbox(),
+              const PaintStatusBar(),
+            ],
+          ),
         ),
       ),
     );

@@ -5,9 +5,10 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter_windows_xp/applications/minesweeper/core/enums/minesweeper_difficulty.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/data/stores/minesweeper.store.dart';
-import 'package:flutter_windows_xp/components/custom_menu/custom_menu.dart';
-import 'package:flutter_windows_xp/components/custom_menu/menu_descriptors/menu_bar_button_descriptor.dart';
-import 'package:flutter_windows_xp/components/custom_menu/menu_descriptors/menu_item_descriptor.dart';
+import 'package:flutter_windows_xp/ui/widgets/custom_menu/custom_menu.dart';
+import 'package:flutter_windows_xp/ui/widgets/custom_menu/menu_descriptors/menu_bar_button_descriptor.dart';
+import 'package:flutter_windows_xp/ui/widgets/custom_menu/menu_descriptors/menu_item_descriptor.dart';
+import 'package:flutter_windows_xp/ui/widgets/window/bloc/window_bloc.dart';
 
 class MinesweeperMenu extends StatelessWidget {
   const MinesweeperMenu({
@@ -18,7 +19,6 @@ class MinesweeperMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final minesweeperStore = context.read<MinesweeperStore>();
     final difficultyStore = minesweeperStore.difficultyStore;
-    final windowStore = minesweeperStore.windowStore;
 
     return Observer(
       builder: (_) => CustomMenu(
@@ -82,7 +82,7 @@ class MinesweeperMenu extends StatelessWidget {
               MenuItemOptionTextDescriptor(
                 text: 'Exit',
                 onTap: () {
-                  windowStore.close();
+                  context.read<WindowBloc>().exit();
                 },
               ),
             ],

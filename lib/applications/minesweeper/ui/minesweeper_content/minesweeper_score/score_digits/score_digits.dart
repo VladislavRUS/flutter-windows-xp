@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_windows_xp/applications/minesweeper/core/theme/minesweeper_theme.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 final _digitsMap = {
-  '0': Assets.apps.minesweeper.digits.zero,
-  '1': Assets.apps.minesweeper.digits.one,
-  '2': Assets.apps.minesweeper.digits.two,
-  '3': Assets.apps.minesweeper.digits.three,
-  '4': Assets.apps.minesweeper.digits.four,
-  '5': Assets.apps.minesweeper.digits.five,
-  '6': Assets.apps.minesweeper.digits.six,
-  '7': Assets.apps.minesweeper.digits.seven,
-  '8': Assets.apps.minesweeper.digits.eight,
-  '9': Assets.apps.minesweeper.digits.nine,
+  '0': Assets.applications.minesweeper.digits.zero,
+  '1': Assets.applications.minesweeper.digits.one,
+  '2': Assets.applications.minesweeper.digits.two,
+  '3': Assets.applications.minesweeper.digits.three,
+  '4': Assets.applications.minesweeper.digits.four,
+  '5': Assets.applications.minesweeper.digits.five,
+  '6': Assets.applications.minesweeper.digits.six,
+  '7': Assets.applications.minesweeper.digits.seven,
+  '8': Assets.applications.minesweeper.digits.eight,
+  '9': Assets.applications.minesweeper.digits.nine,
 };
 
 class ScoreDigits extends StatelessWidget {

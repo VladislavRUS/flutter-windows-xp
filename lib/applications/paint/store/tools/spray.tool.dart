@@ -9,7 +9,7 @@ import 'package:mobx/mobx.dart';
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 part 'spray.tool.g.dart';
 
@@ -20,7 +20,7 @@ abstract class SprayToolBase extends CanvasTool with Store {
       : super(
           paintStore,
           type: CanvasToolType.spray,
-          iconPath: Assets.apps.paint.toolSpray.path,
+          iconPath: Assets.applications.paint.toolSpray.path,
         );
 
   @observable

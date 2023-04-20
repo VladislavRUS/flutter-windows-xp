@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/core/enums/minesweeper_game_state.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/core/theme/minesweeper_theme.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/data/stores/minesweeper.store.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 class ScoreFace extends StatefulWidget {
   const ScoreFace({Key? key}) : super(key: key);
@@ -67,13 +67,13 @@ class _ScoreFaceState extends State<ScoreFace> {
     String asset;
 
     if (isFieldPressed) {
-      asset = Assets.apps.minesweeper.face.oh.path;
+      asset = Assets.applications.minesweeper.face.oh.path;
     } else if (gameState == MinesweeperGameState.lost) {
-      asset = Assets.apps.minesweeper.face.dead.path;
+      asset = Assets.applications.minesweeper.face.dead.path;
     } else if (gameState == MinesweeperGameState.won) {
-      asset = Assets.apps.minesweeper.face.won.path;
+      asset = Assets.applications.minesweeper.face.won.path;
     } else {
-      asset = Assets.apps.minesweeper.face.smile.path;
+      asset = Assets.applications.minesweeper.face.smile.path;
     }
 
     return Image.asset(

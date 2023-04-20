@@ -1,8 +1,11 @@
 slidy: '1'
 
 scripts:
-  runner:
-    run: fvm flutter pub run build_runner build --delete-conflicting-outputs
+  init:
+    steps:
+      - run: slidy run get
+      - run: slidy run assets
+      - run: slidy run runner
 
   get:
     run: fvm flutter pub get
@@ -12,6 +15,9 @@ scripts:
       - run: fvm dart pub global activate flutter_gen
       - run: fluttergen -c pubspec.yaml
 
+  runner:
+    run: fvm flutter pub run build_runner build --delete-conflicting-outputs
+
   clean:
     run: fvm flutter clean
 
@@ -20,5 +26,5 @@ scripts:
 
   deploy:
     steps:
-      - run: fvm flutter build web
+      - run: slidy run build
       - run: npx gh-pages@3.0.0 -d build/web

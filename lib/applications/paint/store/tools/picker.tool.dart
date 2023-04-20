@@ -8,7 +8,7 @@ import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart'
 import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 class PickerTool extends CanvasTool {
   Offset? _lastPosition;
@@ -17,7 +17,7 @@ class PickerTool extends CanvasTool {
       : super(
           paintStore,
           type: CanvasToolType.picker,
-          iconPath: Assets.apps.paint.toolPicker.path,
+          iconPath: Assets.applications.paint.toolPicker.path,
         );
 
   @override

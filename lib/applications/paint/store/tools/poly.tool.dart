@@ -5,7 +5,7 @@ import 'package:mobx/mobx.dart';
 import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
 import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 part 'poly.tool.g.dart';
 
@@ -16,7 +16,7 @@ abstract class PolyToolBase extends CanvasTool with Store {
       : super(
           paintStore,
           type: CanvasToolType.poly,
-          iconPath: Assets.apps.paint.toolPoly.path,
+          iconPath: Assets.applications.paint.toolPoly.path,
         );
 
   @observable

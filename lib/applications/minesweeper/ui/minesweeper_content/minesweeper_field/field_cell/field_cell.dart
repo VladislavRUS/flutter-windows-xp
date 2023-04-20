@@ -7,7 +7,7 @@ import 'package:flutter_windows_xp/applications/minesweeper/core/enums/minesweep
 import 'package:flutter_windows_xp/applications/minesweeper/core/theme/minesweeper_theme.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/data/models/minesweeper_cell.model.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/data/stores/minesweeper.store.dart';
-import 'package:flutter_windows_xp/common/assets.gen.dart';
+import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 class FieldCell extends StatelessWidget {
   final MinesweeperCellModel cell;
@@ -60,12 +60,12 @@ class FieldCell extends StatelessWidget {
     if (isRevealed) {
       if (cell.isFlagged) {
         if (cell.isMine) {
-          return Image.asset(Assets.apps.minesweeper.field.flag.path);
+          return Image.asset(Assets.applications.minesweeper.field.flag.path);
         } else {
-          return Image.asset(Assets.apps.minesweeper.field.noBomb.path);
+          return Image.asset(Assets.applications.minesweeper.field.noBomb.path);
         }
       } else if (cell.isMine) {
-        return Image.asset(Assets.apps.minesweeper.field.bomb.path);
+        return Image.asset(Assets.applications.minesweeper.field.bomb.path);
       } else if (cell.neighbourMines == 0) {
         return null;
       } else {
@@ -82,9 +82,11 @@ class FieldCell extends StatelessWidget {
       }
     } else if (gameState == MinesweeperGameState.won && cell.isMine ||
         isFlagged) {
-      return Image.asset(Assets.apps.minesweeper.field.flag.path);
+      return Image.asset(Assets.applications.minesweeper.field.flag.path);
     } else if (isQuestionMarked) {
-      return Image.asset(Assets.apps.minesweeper.field.questionMark.path);
+      return Image.asset(
+        Assets.applications.minesweeper.field.questionMark.path,
+      );
     }
 
     return null;
