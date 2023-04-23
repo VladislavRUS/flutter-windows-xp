@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/canvas.tool.dart';
 import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 class Tool extends StatefulWidget {

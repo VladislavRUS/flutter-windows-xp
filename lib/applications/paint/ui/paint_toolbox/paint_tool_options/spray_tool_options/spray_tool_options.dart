@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/tools/spray.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/spray.tool.dart';
 import '../option_box/option_box.dart';
 import 'spray_tool_option.dart';
 

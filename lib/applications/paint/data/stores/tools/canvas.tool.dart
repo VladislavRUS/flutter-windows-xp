@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/models/drawing.model.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/paint.store.dart';
 
 abstract class CanvasTool {
   final PaintStoreBase paintStore;

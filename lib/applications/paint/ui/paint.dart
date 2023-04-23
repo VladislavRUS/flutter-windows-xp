@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/paint.store.dart';
 import 'package:flutter_windows_xp/ui/widgets/regular_window/regular_window.dart';
 import 'package:flutter_windows_xp/ui/widgets/window/bloc/window_bloc.dart';
 import 'paint_body/paint_body.dart';

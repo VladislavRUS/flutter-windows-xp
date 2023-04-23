@@ -2,71 +2,69 @@ import 'package:flutter/material.dart';
 
 import 'package:mobx/mobx.dart';
 
-import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/models/drawing.model.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/canvas.tool.dart';
 import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
-part 'rounded.tool.g.dart';
+part 'rect.tool.g.dart';
 
-class RoundedTool = RoundedToolBase with _$RoundedTool;
+class RectTool = RectToolBase with _$RectTool;
 
-abstract class RoundedToolBase extends CanvasTool with Store {
+abstract class RectToolBase extends CanvasTool with Store {
   final double _borderWidth = 1;
-  final double _borderRadius = 10;
 
   Offset? _startPosition;
   int? prevGeneratedLength;
 
   @observable
-  RoundedToolStyle style = RoundedToolStyle.border;
+  RectToolStyle style = RectToolStyle.border;
 
-  RoundedToolBase(PaintStoreBase paintStore)
+  RectToolBase(PaintStoreBase paintStore)
       : super(
           paintStore,
-          type: CanvasToolType.rounded,
-          iconPath: Assets.applications.paint.toolRounded.path,
+          type: CanvasToolType.rect,
+          iconPath: Assets.applications.paint.toolRect.path,
         );
 
   @override
   void onStart(List<DrawingModel> drawings, DragStartDetails details) {
     _startPosition = details.localPosition;
 
-    final roundedDrawings = _getRoundedDrawings(
+    final rectDrawings = _getRectDrawings(
       _startPosition!,
       details.localPosition,
       style,
     );
 
-    drawings.addAll(roundedDrawings);
+    drawings.addAll(rectDrawings);
   }
 
   @override
   void onUpdate(List<DrawingModel> drawings, DragUpdateDetails details) {
-    final roundedDrawings = _getRoundedDrawings(
+    final rectDrawings = _getRectDrawings(
       _startPosition!,
       details.localPosition,
       style,
     );
 
-    for (var i = 0; i < roundedDrawings.length; i++) {
-      final drawing = drawings[drawings.length - roundedDrawings.length + i]
+    for (var i = 0; i < rectDrawings.length; i++) {
+      final drawing = drawings[drawings.length - rectDrawings.length + i]
           as PathDrawingModel;
 
       drawing.path.reset();
-      drawing.path.addPath(roundedDrawings[i].path, Offset.zero);
+      drawing.path.addPath(rectDrawings[i].path, Offset.zero);
     }
   }
 
-  List<PathDrawingModel> _getRoundedDrawings(
+  List<PathDrawingModel> _getRectDrawings(
     Offset start,
     Offset end,
-    RoundedToolStyle style,
+    RectToolStyle style,
   ) {
     final drawings = <PathDrawingModel>[];
 
-    // Make rect path with rounded borders
-    final rounded = Rect.fromPoints(
+    final rect = Rect.fromPoints(
       Offset(
         start.dx,
         start.dy,
@@ -77,13 +75,7 @@ abstract class RoundedToolBase extends CanvasTool with Store {
       ),
     );
 
-    final path = Path()
-      ..addRRect(
-        RRect.fromRectAndRadius(
-          rounded,
-          Radius.circular(_borderRadius),
-        ),
-      );
+    final path = Path()..addRect(rect);
 
     final paint = Paint()
       ..color = paintStore.colorsStore.primaryColor
@@ -99,20 +91,13 @@ abstract class RoundedToolBase extends CanvasTool with Store {
       ),
     );
 
-    if (style == RoundedToolStyle.borderFill ||
-        style == RoundedToolStyle.fill) {
-      final innerRounded = rounded.inflate(-_borderWidth / 2);
+    if (style == RectToolStyle.borderFill || style == RectToolStyle.fill) {
+      final innerRect = rect.inflate(-_borderWidth / 2);
 
-      final path = Path()
-        ..addRRect(
-          RRect.fromRectAndRadius(
-            innerRounded,
-            Radius.circular(_borderRadius),
-          ),
-        );
+      final path = Path()..addRect(innerRect);
 
       final paint = Paint()
-        ..color = style == RoundedToolStyle.borderFill
+        ..color = style == RectToolStyle.borderFill
             ? paintStore.colorsStore.secondaryColor
             : paintStore.colorsStore.primaryColor
         ..strokeWidth = _borderWidth
@@ -138,7 +123,7 @@ abstract class RoundedToolBase extends CanvasTool with Store {
   }
 
   @action
-  void onSelectType(RoundedToolStyle value) {
+  void onSelectType(RectToolStyle value) {
     style = value;
   }
 
@@ -149,7 +134,7 @@ abstract class RoundedToolBase extends CanvasTool with Store {
   void onDeselected() {}
 }
 
-enum RoundedToolStyle {
+enum RectToolStyle {
   border,
   borderFill,
   fill,

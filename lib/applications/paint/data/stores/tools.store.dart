@@ -1,14 +1,14 @@
 import 'package:mobx/mobx.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/ellipsis.tool.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/eraser.tool.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/fill.tool.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/pencil.tool.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/poly.tool.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/rect.tool.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/rounded.tool.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/spray.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/ellipsis.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/eraser.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/fill.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/pencil.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/poly.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/rect.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/rounded.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/spray.tool.dart';
 import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 import 'tools/canvas.tool.dart';
 import 'tools/line.tool.dart';

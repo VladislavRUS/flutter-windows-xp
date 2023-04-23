@@ -1,8 +1,8 @@
 import 'package:mobx/mobx.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/canvas.store.dart';
-import 'package:flutter_windows_xp/applications/paint/store/colors.store.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/canvas.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/colors.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools.store.dart';
 
 part 'paint.store.g.dart';
 

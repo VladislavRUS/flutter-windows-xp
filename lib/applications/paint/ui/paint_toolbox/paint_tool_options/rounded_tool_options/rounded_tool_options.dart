@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/tools/rounded.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/rounded.tool.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_toolbox/paint_tool_options/rect_tool_options/rect_tool_option.dart';
 import '../option_box/option_box.dart';
 

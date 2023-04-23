@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_windows_xp/applications/paint/models/drawing.model.dart';
+import 'package:flutter_windows_xp/applications/paint/data/models/drawing.model.dart';
 
 class CanvasPainter extends CustomPainter {
   final List<DrawingModel> drawings;

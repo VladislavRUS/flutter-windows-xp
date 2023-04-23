@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
-import 'package:flutter_windows_xp/applications/paint/store/tools/canvas.tool.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/tools/canvas.tool.dart';
 
 class CanvasCursor extends StatelessWidget {
   final Widget child;

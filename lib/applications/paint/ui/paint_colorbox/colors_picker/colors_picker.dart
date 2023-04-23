@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/paint.store.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint_colorbox/colors_picker/color_box/color_box.dart';
 
 class ColorsPicker extends StatelessWidget {

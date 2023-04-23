@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/paint.store.dart';
 import 'canvas_painter/canvas_painter.dart';
 
 class CustomCanvasPainter extends StatefulWidget {

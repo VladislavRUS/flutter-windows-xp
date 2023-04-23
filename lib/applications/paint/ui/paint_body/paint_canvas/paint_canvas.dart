@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'package:flutter_windows_xp/applications/paint/store/paint.store.dart';
+import 'package:flutter_windows_xp/applications/paint/data/stores/paint.store.dart';
 import 'canvas_cursor/canvas_cursor.dart';
 import 'custom_canvas_painter/custom_canvas_painter.dart';
 
