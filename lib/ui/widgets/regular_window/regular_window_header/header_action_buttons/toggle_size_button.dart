@@ -6,11 +6,13 @@ import 'package:flutter_windows_xp/ui/widgets/regular_window/regular_window_head
 class ToggleSizeButton extends StatelessWidget {
   final VoidCallback onTap;
   final bool maximized;
+  final bool disabled;
 
   const ToggleSizeButton({
     Key? key,
     required this.onTap,
     required this.maximized,
+    required this.disabled,
   }) : super(key: key);
 
   @override
@@ -19,6 +21,7 @@ class ToggleSizeButton extends StatelessWidget {
 
     return BaseActionButton(
       onTap: onTap,
+      disabled: disabled,
       child: Container(
         decoration: BoxDecoration(
           gradient: theme.toggleSizeButtonGradient,

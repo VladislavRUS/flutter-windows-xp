@@ -32,6 +32,9 @@ class ApplicationsBloc extends Cubit<ApplicationsState> {
                 name: 'Minesweeper',
                 icon: Assets.applications.minesweeper.minesweeper.path,
                 builder: (_) => const Minesweeper(),
+                windowConfig: const WindowConfigModel(
+                  resizable: false,
+                ),
               ),
             ],
           ),

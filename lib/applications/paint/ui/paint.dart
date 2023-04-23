@@ -24,7 +24,9 @@ class _PaintState extends State<Paint> {
   void initState() {
     super.initState();
 
-    context.read<WindowBloc>().setSize(width: 800, height: 600);
+    context.read<WindowBloc>()
+      ..setSize(width: 800, height: 600)
+      ..setName('Untitled - Paint');
 
     _paintStore = PaintStore();
   }

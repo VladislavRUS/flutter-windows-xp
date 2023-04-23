@@ -1,6 +1,7 @@
 import 'package:mobx/mobx.dart';
 
 import 'package:flutter_windows_xp/applications/minesweeper/core/enums/minesweeper_difficulty.dart';
+import 'package:flutter_windows_xp/ui/widgets/window/bloc/window_bloc.dart';
 import 'difficulty/difficulty.store.dart';
 import 'field/field.store.dart';
 import 'score/score.store.dart';
@@ -10,11 +11,12 @@ part 'minesweeper.store.g.dart';
 class MinesweeperStore = MinesweeperStoreBase with _$MinesweeperStore;
 
 abstract class MinesweeperStoreBase with Store {
+  late WindowBloc windowBloc;
   late FieldStore fieldStore;
   late ScoreStore scoreStore;
   late DifficultyStore difficultyStore;
 
-  MinesweeperStoreBase() {
+  MinesweeperStoreBase(this.windowBloc) {
     fieldStore = FieldStore(this);
     scoreStore = ScoreStore(this);
     difficultyStore = DifficultyStore(this);
@@ -42,14 +44,13 @@ abstract class MinesweeperStoreBase with Store {
     switch (difficulty) {
       // TODO - Set window size depending on difficulty
       case MinesweeperDifficulty.beginner:
-        // windowStore.setSize(169, 253);
+        windowBloc.setSize(width: 169, height: 253);
         break;
       case MinesweeperDifficulty.intermediate:
-        // windowStore.setSize(281, 365);
+        windowBloc.setSize(width: 281, height: 365);
         break;
       case MinesweeperDifficulty.expert:
-        // windowStore.setSize(505, 365);
-
+        windowBloc.setSize(width: 505, height: 365);
         break;
     }
   }

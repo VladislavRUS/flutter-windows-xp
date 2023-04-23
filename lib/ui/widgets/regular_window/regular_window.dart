@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tap_canvas/tap_canvas.dart';
@@ -10,7 +11,7 @@ import 'package:flutter_windows_xp/ui/widgets/regular_window/regular_window_head
 import 'package:flutter_windows_xp/ui/widgets/resizable_window/resizable_window.dart';
 import 'package:flutter_windows_xp/ui/widgets/window/bloc/window_bloc.dart';
 
-class RegularWindow extends StatelessWidget {
+class RegularWindow extends StatefulWidget {
   final Widget child;
 
   const RegularWindow({
@@ -19,23 +20,49 @@ class RegularWindow extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<RegularWindow> createState() => _RegularWindowState();
+}
+
+class _RegularWindowState extends State<RegularWindow> {
+  bool _visible = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      setState(() {
+        _visible = true;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final bloc = context.watch<WindowBloc>();
+    final window = bloc.state.window;
 
-    final isFocused = bloc.state.window?.focused ?? false;
-    final isMaximized = bloc.state.window?.maximized ?? false;
+    final isFocused = window?.focused ?? false;
+    final isMaximized = window?.maximized ?? false;
+    final isResizable = window?.application.windowConfig?.resizable ?? true;
+
+    final resizeDisabled = isMaximized || !isResizable;
 
     final theme = WindowsTheme.of(context).regularWindowTheme;
 
     final borderColor =
         isFocused ? theme.focusedBorderColor : theme.borderColor;
 
+    if (!_visible) {
+      return const SizedBox.shrink();
+    }
+
     return TapOutsideDetectorWidget(
       onTappedOutside: bloc.unfocus,
       child: GestureDetector(
         onPanDown: isFocused ? null : (_) => bloc.focus(),
         child: ResizableWindow(
-          disabled: isMaximized,
+          disabled: resizeDisabled,
           onTopUpdate: (offset) => bloc.resize(
             offset,
             ResizeDirection.top,
@@ -77,6 +104,7 @@ class RegularWindow extends StatelessWidget {
                   name: bloc.state.window?.name,
                   iconPath: bloc.state.window?.application.icon,
                   focused: isFocused,
+                  maximizeDisabled: !isResizable,
                 ),
               ),
               Expanded(
@@ -97,7 +125,7 @@ class RegularWindow extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: child,
+                  child: widget.child,
                 ),
               ),
             ],

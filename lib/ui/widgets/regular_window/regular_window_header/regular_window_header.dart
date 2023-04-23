@@ -8,12 +8,14 @@ class RegularWindowHeader extends StatelessWidget {
   final String? iconPath;
   final String? name;
   final bool focused;
+  final bool maximizeDisabled;
 
   const RegularWindowHeader({
     Key? key,
     required this.iconPath,
     required this.name,
     required this.focused,
+    required this.maximizeDisabled,
   }) : super(key: key);
 
   @override
@@ -78,7 +80,9 @@ class RegularWindowHeader extends StatelessWidget {
                   ),
                   Opacity(
                     opacity: focused ? 1 : 0.6,
-                    child: const HeaderActionButtons(),
+                    child: HeaderActionButtons(
+                      maximizeDisabled: maximizeDisabled,
+                    ),
                   ),
                   const SizedBox(
                     width: 5,

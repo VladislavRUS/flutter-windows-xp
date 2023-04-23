@@ -8,7 +8,12 @@ import 'hide_button.dart';
 import 'toggle_size_button.dart';
 
 class HeaderActionButtons extends StatelessWidget {
-  const HeaderActionButtons({Key? key}) : super(key: key);
+  final bool maximizeDisabled;
+
+  const HeaderActionButtons({
+    Key? key,
+    required this.maximizeDisabled,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +31,7 @@ class HeaderActionButtons extends StatelessWidget {
         ToggleSizeButton(
           onTap: windowBloc.toggleSize,
           maximized: maximized,
+          disabled: maximizeDisabled,
         ),
         const SizedBox(
           width: 1,

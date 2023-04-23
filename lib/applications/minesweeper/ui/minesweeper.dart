@@ -22,10 +22,10 @@ class _MinesweeperState extends State<Minesweeper> {
   void initState() {
     super.initState();
 
-    final windowStore = context.read<WindowBloc>();
-    windowStore.setName('Minesweeper');
+    final windowBloc = context.read<WindowBloc>();
+    windowBloc.setName('Minesweeper');
 
-    _minesweeperStore = MinesweeperStore();
+    _minesweeperStore = MinesweeperStore(windowBloc);
   }
 
   @override
