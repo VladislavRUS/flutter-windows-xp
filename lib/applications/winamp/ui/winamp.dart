@@ -24,6 +24,9 @@ class _WinampState extends State<Winamp> {
           width: 275,
           height: 285,
         );
+
+    // TODO uncomment when ready
+    // locator<PlayLamaTrackUseCase>().execute(PlayLamaTrackUseCaseParams());
   }
 
   @override
