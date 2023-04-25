@@ -10,4 +10,3 @@ export './windows/set_window_name_use_case.dart';
 export './windows/set_window_size_use_case.dart';
 export './windows/toggle_window_size_use_case.dart';
 export './windows/unfocus_window_use_case.dart';
-export 'base_use_case.dart';

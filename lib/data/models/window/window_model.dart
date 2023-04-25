@@ -21,4 +21,7 @@ class WindowModel with _$WindowModel {
     @Default(false) bool hidden,
     @Default(false) bool focused,
   }) = _WindowModel;
+
+  bool get resizeDisabled =>
+      maximized || (application.windowConfig?.resizable ?? true);
 }

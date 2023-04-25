@@ -1,8 +1,8 @@
 import 'package:injectable/injectable.dart';
 
+import 'package:flutter_windows_xp/core/abstracts/base_watcher.dart';
 import 'package:flutter_windows_xp/data/models/models.dart';
 import 'package:flutter_windows_xp/data/repositories/repositories.dart';
-import 'package:flutter_windows_xp/domain/watchers/base_watcher.dart';
 
 @injectable
 class WindowsWatcher

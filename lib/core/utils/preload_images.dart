@@ -6,12 +6,19 @@ import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 
 Future<void> preloadImages() async {
   final images = [
+    // Minesweeper
     Assets.applications.minesweeper.minesweeper,
     ...Assets.applications.minesweeper.digits.values,
     ...Assets.applications.minesweeper.field.values,
     ...Assets.applications.minesweeper.face.values,
+    // Notepad
     Assets.applications.notepad.notepad,
+    // Paint
     ...Assets.applications.paint.values,
+    // Winamp
+    ...Assets.applications.winamp.ui.values,
+    Assets.applications.winamp.winamp,
+    // Other
     Assets.icons.device,
     Assets.icons.protection,
     Assets.icons.sound,

@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:flutter_windows_xp/applications/minesweeper/ui/minesweeper.dart';
 import 'package:flutter_windows_xp/applications/notepad/ui/notepad.dart';
 import 'package:flutter_windows_xp/applications/paint/ui/paint.dart';
+import 'package:flutter_windows_xp/applications/winamp/ui/winamp.dart';
 import 'package:flutter_windows_xp/core/assets/assets.gen.dart';
 import 'package:flutter_windows_xp/core/utils/get_short_id.dart';
 import 'package:flutter_windows_xp/data/models/models.dart';
@@ -35,6 +36,12 @@ class ApplicationsBloc extends Cubit<ApplicationsState> {
                 windowConfig: const WindowConfigModel(
                   resizable: false,
                 ),
+              ),
+              ApplicationModel(
+                id: getShortId(),
+                name: 'Winamp',
+                icon: Assets.applications.winamp.winamp.path,
+                builder: (_) => const Winamp(),
               ),
             ],
           ),

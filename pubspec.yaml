@@ -38,6 +38,7 @@ dependencies:
   freezed_annotation: ^2.2.0
   injectable: ^2.1.1
   get_it: ^7.2.0
+  audioplayers: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,9 @@ flutter:
     - assets/applications/minesweeper/digits/
     - assets/applications/minesweeper/face/
     - assets/applications/minesweeper/field/
+    - assets/applications/winamp/
+    - assets/applications/winamp/tracks/
+    - assets/applications/winamp/ui/
 
   fonts:
     - family: Montserrat
