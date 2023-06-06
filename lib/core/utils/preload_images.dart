@@ -17,6 +17,9 @@ Future<void> preloadImages() async {
     ...Assets.applications.paint.values,
     // Winamp
     ...Assets.applications.winamp.ui.values,
+    ...Assets.applications.winamp.ui.playlist.values,
+    ...Assets.applications.winamp.ui.audio.values,
+    ...Assets.applications.winamp.ui.audio.actions.values,
     Assets.applications.winamp.winamp,
     // Other
     Assets.icons.device,

@@ -20,17 +20,7 @@ class PlayTrackUseCase
   Future<void> execute(
     PlayTrackUseCaseParams params,
   ) async {
-    final tracks = await _tracksRepository.getTracks();
-
-    final updatedTracks = tracks.map((e) {
-      if (e.id == params.track.id) {
-        return params.track.copyWith(playing: true);
-      }
-
-      return e.copyWith(playing: false);
-    }).toList();
-
-    await _tracksRepository.updateTracks(updatedTracks);
+    await _tracksRepository.setPlayingTrack(params.track);
     await _audioPlayer.play(params.track.path);
   }
 }

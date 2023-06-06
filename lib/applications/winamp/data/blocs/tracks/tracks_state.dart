@@ -8,5 +8,6 @@ part 'tracks_state.freezed.dart';
 class TracksState with _$TracksState {
   const factory TracksState({
     required List<TrackModel> tracks,
+    TrackModel? playingTrack,
   }) = _TracksState;
 }

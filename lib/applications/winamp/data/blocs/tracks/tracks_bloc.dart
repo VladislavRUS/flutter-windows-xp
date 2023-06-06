@@ -58,6 +58,14 @@ class TracksBloc extends Cubit<TracksState> {
           ),
         );
 
+  void setPlayingTrack(TrackModel? track) {
+    emit(
+      state.copyWith(
+        playingTrack: track,
+      ),
+    );
+  }
+
   void updateTrack(TrackModel track) {
     emit(
       state.copyWith(

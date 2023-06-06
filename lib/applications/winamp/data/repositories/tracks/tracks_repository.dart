@@ -13,6 +13,10 @@ class TracksRepository {
     return _tracksBloc.stream.map((state) => state.tracks);
   }
 
+  Stream<TrackModel?> watchPlayingTrack() {
+    return _tracksBloc.stream.map((state) => state.playingTrack);
+  }
+
   Future<List<TrackModel>> getTracks() async {
     return Future.value(_tracksBloc.state.tracks);
   }
@@ -23,5 +27,13 @@ class TracksRepository {
 
   Future<void> updateTracks(List<TrackModel> tracks) async {
     _tracksBloc.updateTracks(tracks);
+  }
+
+  Future<void> setPlayingTrack(TrackModel? track) async {
+    _tracksBloc.setPlayingTrack(track);
+  }
+
+  Future<TrackModel?> getCurrentTrack() async {
+    return _tracksBloc.state.playingTrack;
   }
 }

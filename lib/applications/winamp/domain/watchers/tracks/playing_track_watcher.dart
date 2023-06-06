@@ -12,10 +12,8 @@ class PlayingTrackWatcher
   PlayingTrackWatcher(this._tracksRepository);
 
   @override
-  Stream<TrackModel> watch(PlayingTrackWatcherParams params) {
-    return _tracksRepository.watchTracks().map((tracks) {
-      return tracks.firstWhere((element) => element.playing);
-    });
+  Stream<TrackModel?> watch(PlayingTrackWatcherParams params) {
+    return _tracksRepository.watchPlayingTrack();
   }
 }
 

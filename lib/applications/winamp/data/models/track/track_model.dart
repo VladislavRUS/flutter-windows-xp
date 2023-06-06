@@ -12,6 +12,5 @@ class TrackModel with _$TrackModel {
     required String author,
     required int durationInSeconds,
     required String path,
-    @Default(false) bool playing,
   }) = _TrackModel;
 }

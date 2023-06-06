@@ -39,6 +39,7 @@ dependencies:
   injectable: ^2.1.1
   get_it: ^7.2.0
   audioplayers: ^4.0.1
+  url_launcher: ^6.1.11
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,9 @@ flutter:
     - assets/applications/winamp/
     - assets/applications/winamp/tracks/
     - assets/applications/winamp/ui/
+    - assets/applications/winamp/ui/playlist/
+    - assets/applications/winamp/ui/audio/
+    - assets/applications/winamp/ui/audio/actions/
 
   fonts:
     - family: Montserrat

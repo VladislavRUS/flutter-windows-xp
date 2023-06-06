@@ -62,10 +62,10 @@ class TrackItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              '${index + 1}',
+              '${index + 1}.',
               style: textStyle,
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 4),
             Expanded(
               child: Text(
                 track.name,
