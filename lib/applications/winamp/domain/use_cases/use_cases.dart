@@ -6,3 +6,5 @@ export 'tracks/pause_track_use_case.dart';
 export 'tracks/resume_track_use_case.dart';
 export 'tracks/play_previous_track_use_case.dart';
 export 'tracks/play_next_track_use_case.dart';
+export 'settings/set_repeat_use_case.dart';
+export 'settings/set_shuffle_use_case.dart';

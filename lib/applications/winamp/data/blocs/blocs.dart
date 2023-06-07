@@ -1,3 +1,2 @@
-//GENERATED BARREL FILE
-export './tracks/tracks_bloc.dart';
-export './tracks/tracks_state.dart';
+export 'tracks/tracks_bloc.dart';
+export 'settings/settings_bloc.dart';

@@ -73,12 +73,12 @@ class _AudioActionsState extends State<AudioActions> {
                 width: 8,
               ),
               ShuffleActionButton(
-                selected: false,
-                onTap: () {},
+                selected: state.shuffle,
+                onTap: audioActionsBloc.toggleShuffle,
               ),
               RepeatActionButton(
-                selected: false,
-                onTap: () {},
+                selected: state.repeat,
+                onTap: audioActionsBloc.toggleRepeat,
               ),
               const Spacer(),
               MouseRegion(
