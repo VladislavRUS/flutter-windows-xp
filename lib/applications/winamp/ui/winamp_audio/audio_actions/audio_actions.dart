@@ -67,7 +67,7 @@ class _AudioActionsState extends State<AudioActions> {
                 width: 8,
               ),
               EjectActionButton(
-                onTap: () {},
+                onTap: audioActionsBloc.loadTracks,
               ),
               const SizedBox(
                 width: 8,

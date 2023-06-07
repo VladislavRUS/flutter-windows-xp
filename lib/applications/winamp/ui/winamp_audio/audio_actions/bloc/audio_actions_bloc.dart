@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
+import 'package:flutter_windows_xp/applications/winamp/domain/use_cases/tracks/load_tracks_use_case.dart';
 import 'package:flutter_windows_xp/applications/winamp/domain/use_cases/use_cases.dart';
 import 'audio_actions_state.dart';
 
@@ -11,6 +12,7 @@ class AudioActionsBloc extends Cubit<AudioActionsState> {
   final PauseTrackUseCase _pauseTrackUseCase;
   final PlayPreviousTrackUseCase _playPreviousTrackUseCase;
   final PlayNextTrackUseCase _playNextTrackUseCase;
+  final LoadTracksUseCase _loadTracksUseCase;
 
   AudioActionsBloc(
     this._resumeTrackUseCase,
@@ -18,6 +20,7 @@ class AudioActionsBloc extends Cubit<AudioActionsState> {
     this._pauseTrackUseCase,
     this._playPreviousTrackUseCase,
     this._playNextTrackUseCase,
+    this._loadTracksUseCase,
   ) : super(const AudioActionsState());
 
   void resumeTrack() {
@@ -38,5 +41,9 @@ class AudioActionsBloc extends Cubit<AudioActionsState> {
 
   void nextTrack() {
     _playNextTrackUseCase.execute(PlayNextTrackUseCaseParams());
+  }
+
+  void loadTracks() {
+    _loadTracksUseCase.execute(LoadTracksUseCaseParams());
   }
 }

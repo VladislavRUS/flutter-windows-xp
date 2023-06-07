@@ -16,10 +16,10 @@ class StartupBar extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: startupBarTheme.backgroundGradient,
       ),
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const [
+        children: [
           SizedBox(
             width: 106,
             child: StartButton(),

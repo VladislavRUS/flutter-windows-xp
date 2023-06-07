@@ -38,19 +38,19 @@ class _PaintState extends State<Paint> {
       child: RegularWindow(
         child: Container(
           color: Colors.white,
-          child: Column(
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
                 child: Row(
-                  children: const [
+                  children: [
                     SizedBox(width: 56, child: PaintToolbox()),
                     Expanded(child: PaintBody()),
                   ],
                 ),
               ),
-              const PaintColorbox(),
-              const PaintStatusBar(),
+              PaintColorbox(),
+              PaintStatusBar(),
             ],
           ),
         ),

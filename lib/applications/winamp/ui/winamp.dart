@@ -35,10 +35,10 @@ class _WinampState extends State<Winamp> {
       providers: [
         Provider.value(value: winampTheme),
       ],
-      child: WinampWindow(
+      child: const WinampWindow(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             WinampAudio(),
             WinampPlaylist(),
           ],

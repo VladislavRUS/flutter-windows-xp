@@ -8,7 +8,7 @@ pre-commit:
   commands:
     pretty:
       glob: '*.dart'
-      run: fvm flutter format {staged_files} \
+      run: fvm dart format {staged_files} \
         && fvm flutter pub run import_sorter:main --no-comments \
         && git add {staged_files} -f
 

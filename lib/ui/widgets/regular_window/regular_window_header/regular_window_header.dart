@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:google_fonts/google_fonts.dart';
-
 import 'header_action_buttons/header_action_buttons.dart';
 
 class RegularWindowHeader extends StatelessWidget {
@@ -59,11 +57,11 @@ class RegularWindowHeader extends StatelessWidget {
                             name ?? '',
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
-                            style: GoogleFonts.notoSans(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
-                              shadows: const [
+                              shadows: [
                                 BoxShadow(
                                   color: Colors.black,
                                   offset: Offset(1, 1),

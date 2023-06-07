@@ -7,19 +7,19 @@ class StartupMenuDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
           width: 384,
           child: Column(
-            children: const [
+            children: [
               UserHeader(),
             ],
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 30,
         )
       ],

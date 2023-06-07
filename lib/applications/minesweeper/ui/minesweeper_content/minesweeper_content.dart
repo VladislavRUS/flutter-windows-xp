@@ -35,9 +35,9 @@ class MinesweeperContent extends StatelessWidget {
                 ),
               ),
             ),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: const [
+              children: [
                 MinesweeperScore(),
                 SizedBox(height: 5),
                 Expanded(

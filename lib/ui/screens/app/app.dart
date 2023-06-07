@@ -17,15 +17,15 @@ class App extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: Scaffold(
+      child: const Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
-          children: const [
+          children: [
             DesktopRenderer(),
             WindowsRenderer(),
           ],
         ),
-        bottomNavigationBar: const StartupBar(),
+        bottomNavigationBar: StartupBar(),
       ),
     );
   }

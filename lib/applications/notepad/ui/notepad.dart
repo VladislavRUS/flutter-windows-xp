@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_windows_xp/applications/notepad/ui/notepad_menu/notepad_menu.dart';
@@ -40,13 +39,13 @@ class _NotepadState extends State<Notepad> {
                 border:
                     Border.all(color: const Color.fromRGBO(150, 171, 255, 1)),
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 4),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 1, vertical: 4),
                 child: TextField(
                   maxLines: null,
                   keyboardType: TextInputType.multiline,
-                  decoration: const InputDecoration.collapsed(hintText: ''),
-                  style: GoogleFonts.varela(
+                  decoration: InputDecoration.collapsed(hintText: ''),
+                  style: TextStyle(
                     fontSize: 13,
                     height: 1.07,
                   ),

@@ -19,10 +19,10 @@ class WinampAudio extends StatelessWidget {
           alignment: Alignment.bottomCenter,
         ),
       ),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.end,
-        children: const [
+        children: [
           Padding(
             padding: EdgeInsets.only(left: 16, right: 10, bottom: 8),
             child: AudioActions(),
