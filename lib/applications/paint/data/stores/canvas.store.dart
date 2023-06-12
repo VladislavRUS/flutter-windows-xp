@@ -61,7 +61,7 @@ abstract class CanvasStoreBase with Store {
       details,
     );
 
-    currentDrawing = currentDrawing;
+    forceUpdate();
   }
 
   @action
@@ -76,8 +76,10 @@ abstract class CanvasStoreBase with Store {
     _captureCanvas();
   }
 
+  @action
   void forceUpdate() {
-    currentDrawing = currentDrawing;
+    currentDrawing = null;
+    currentDrawing = drawings.last;
   }
 
   Future<void> _captureCanvas() async {
