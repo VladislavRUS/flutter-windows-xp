@@ -2,23 +2,25 @@
 const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
-const RESOURCES = {
-  "favicon-16x16.png": "70259a9645a0a200d1dde5343b6cffe3",
+
+const RESOURCES = {"favicon-16x16.png": "70259a9645a0a200d1dde5343b6cffe3",
 "version.json": "cecfc52db3e9497f1138f8e7f2aa67ea",
 "favicon.ico": "7846f0b1872f7941d5bca54f731ee324",
-"index.html": "622a8c789942998189a213c5b79c2ad8",
-"/": "622a8c789942998189a213c5b79c2ad8",
+"index.html": "876279707265b24bdd2631a7c500b4c7",
+"/": "876279707265b24bdd2631a7c500b4c7",
 "android-chrome-192x192.png": "ee6cbe6f354a83a3b4b2d2d30f349801",
 "apple-touch-icon.png": "4ce8c46c35330eaf11cf10638a972e09",
-"main.dart.js": "f221374725a9e8da7839f2e7797f021e",
-"flutter.js": "a85fcf6324d3c4d3ae3be1ae4931e9c5",
+"main.dart.js": "a61c81ddcf55c5b2ef62d4a0c31b0058",
+"flutter.js": "6fef97aeca90b426343ba6c5c9dc5d4a",
 "android-chrome-512x512.png": "77a009852049d5ceaf2da17910459cae",
 "site.webmanifest": "98a1357fc5df78ccdf83f7b141d90e0d",
-"assets/AssetManifest.json": "6471dc24c99272c97095bee26390b43b",
-"assets/NOTICES": "2541643d437b9ea26598d02870c3ee0e",
+"assets/AssetManifest.json": "0824d7e8b1cdeebe80b319b7a81443ac",
+"assets/NOTICES": "b5d73562e1687a40f52027fe19c641e1",
 "assets/FontManifest.json": "166d8dd6310bd11f38ecfe591d1ac48e",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "57d849d738900cfd590e9adc7e208250",
+"assets/shaders/ink_sparkle.frag": "f8b80e740d33eb157090be4e995febdf",
+"assets/AssetManifest.smcbin": "5a4665f4c76e507b9b02192a90aead22",
+"assets/fonts/MaterialIcons-Regular.otf": "62ec8220af1fb03e1c20cfa38781e17e",
 "assets/assets/images/start_button.png": "d927ebf20333287353cfcbf941073ac4",
 "assets/assets/images/user_avatar.png": "eb41803d3fe2b24ad5ed4a370dd8fec5",
 "assets/assets/images/paint_tools.png": "f812ade1d5084f3ed1f8c5060435818e",
@@ -64,9 +66,38 @@ const RESOURCES = {
 "assets/assets/applications/minesweeper/digits/one.png": "8f54cc08dd80efa966e2b2ad2e080aa0",
 "assets/assets/applications/minesweeper/digits/seven.png": "246e38d3af2cf68c49950b4200dc22e4",
 "assets/assets/applications/minesweeper/digits/nine.png": "6e2de02c76487c3eb6ae39c03ff7fa4f",
+"assets/assets/applications/winamp/ui/playlist/playlist-left-corner.png": "c0e4cf7730f6c2409b3e0c9d7342e334",
+"assets/assets/applications/winamp/ui/playlist/playlist-tracks-left.png": "67d65360f4ea1ed4f41c9c81cd188602",
+"assets/assets/applications/winamp/ui/playlist/playlist-tracks-right.png": "f3133d2586f438079951688a4b4d48d5",
+"assets/assets/applications/winamp/ui/playlist/playlist-fill.png": "113cea9f8257df54df9d20f645808e01",
+"assets/assets/applications/winamp/ui/playlist/playlist-scrollbar-handle.png": "e7a09a1e01e48e9caa550a9a1f17b4ea",
+"assets/assets/applications/winamp/ui/playlist/playlist-right-corner.png": "2451de3d8dcd647ccdb2847150874191",
+"assets/assets/applications/winamp/ui/playlist/playlist-title.png": "dcf3a6a98e201b4c2d46310e78c007e0",
 "assets/assets/applications/winamp/ui/header_selected.png": "6a0f4ecab5e5bdc0d396c3c3389a15cd",
+"assets/assets/applications/winamp/ui/audio/actions/stop.png": "c9dc033072a1268a81646d6781d35a5d",
+"assets/assets/applications/winamp/ui/audio/actions/play_pressed.png": "8c34027a2e2f256489cc3b7139e51f33",
+"assets/assets/applications/winamp/ui/audio/actions/repeat_pressed.png": "53b5ddd96a44cc241f056b48d6a32fe3",
+"assets/assets/applications/winamp/ui/audio/actions/repeat_selected_pressed.png": "3831d462296fd64c1229070505429db4",
+"assets/assets/applications/winamp/ui/audio/actions/next_pressed.png": "8c5100ed9dcd76f1759d3846b9ece5d3",
+"assets/assets/applications/winamp/ui/audio/actions/eject_pressed.png": "d93cc76d64d1588d4486bb02e81573bb",
+"assets/assets/applications/winamp/ui/audio/actions/eject.png": "45073b6a569cf25ba6667ad0827aff0c",
+"assets/assets/applications/winamp/ui/audio/actions/repeat.png": "93f58c20a8b3668c88127660fd98dab9",
+"assets/assets/applications/winamp/ui/audio/actions/shuffle_selected_pressed.png": "719df452c13c4b579d9f5a129c5aa7bf",
+"assets/assets/applications/winamp/ui/audio/actions/pause_pressed.png": "54a160dddd0d0673fc2424f5aa59cc33",
+"assets/assets/applications/winamp/ui/audio/actions/stop_pressed.png": "41bbdf8469bb335c39cae0607195b91a",
+"assets/assets/applications/winamp/ui/audio/actions/shuffle_pressed.png": "8caead15e0ab4b6993454798759f3b0e",
+"assets/assets/applications/winamp/ui/audio/actions/shuffle.png": "25d37f01541b6404b1f37d8d6a6f61f6",
+"assets/assets/applications/winamp/ui/audio/actions/pause.png": "013422edc4dd28fd710ccccccb31573a",
+"assets/assets/applications/winamp/ui/audio/actions/repeat_selected.png": "84a499effa634e28c44dee8bd2e8f4c0",
+"assets/assets/applications/winamp/ui/audio/actions/previous_pressed.png": "bc449beb1ef6837c67fddc05ec8ee232",
+"assets/assets/applications/winamp/ui/audio/actions/next.png": "7ec8a62723893623fa9bf90655cc4b18",
+"assets/assets/applications/winamp/ui/audio/actions/play.png": "0a623a16f625361f368e0dc58687d779",
+"assets/assets/applications/winamp/ui/audio/actions/previous.png": "e5d5e71eb664abd1a43d35cebce39d7b",
+"assets/assets/applications/winamp/ui/audio/actions/shuffle_selected.png": "a4f96a75ded25c595c41d7cc686c5893",
+"assets/assets/applications/winamp/ui/audio/audio.png": "36fa06fcdc970a3fc1f562f4ddcd8533",
 "assets/assets/applications/winamp/ui/header.png": "0185ec0e2c88c102df4dc29ff1c8bb8d",
 "assets/assets/applications/winamp/winamp.png": "c49ba22145b577f0c1e7ae98bccd3067",
+"assets/assets/applications/winamp/tracks/lama.mp3": "0d1a82f170ce2feaf514b421b89da91a",
 "assets/assets/applications/winamp/tracks/my-universe.mp3": "70e62cdd808ce5b830e2728610ec386e",
 "assets/assets/applications/winamp/tracks/relaxing.mp3": "ced43a6de423bf4b6737295ba6327c22",
 "assets/assets/applications/winamp/tracks/risk.mp3": "2a5660e630379e75c98d3f1675918dc5",
@@ -78,19 +109,20 @@ const RESOURCES = {
 "assets/assets/fonts/montserrat/Montserrat-ExtraBold.ttf": "bd8fb30c6473177cfb9a5544c9ad8fdb",
 "assets/assets/fonts/tahoma/Tahoma-Regular.ttf": "ef272a582d97cd5b59e00526f0694351",
 "favicon-32x32.png": "09869c46af18ae8d56e082039dfe9d7d",
-"canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
-"canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
-"canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
-"canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e"
-};
-
+"canvaskit/skwasm.js": "1df4d741f441fa1a4d10530ced463ef8",
+"canvaskit/skwasm.wasm": "6711032e17bf49924b2b001cef0d3ea3",
+"canvaskit/chromium/canvaskit.js": "8c8392ce4a4364cbb240aa09b5652e05",
+"canvaskit/chromium/canvaskit.wasm": "fc18c3010856029414b70cae1afc5cd9",
+"canvaskit/canvaskit.js": "76f7d822f42397160c5dfc69cbc9b2de",
+"canvaskit/canvaskit.wasm": "f48eaf57cada79163ec6dec7929486ea",
+"canvaskit/skwasm.worker.js": "19659053a277272607529ef87acf9d8a"};
 // The application shell files that are downloaded before a service worker can
 // start.
-const CORE = [
-  "main.dart.js",
+const CORE = ["main.dart.js",
 "index.html",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
+
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
   self.skipWaiting();
@@ -101,7 +133,6 @@ self.addEventListener("install", (event) => {
     })
   );
 });
-
 // During activate, the cache is populated with the temp files downloaded in
 // install. If this service worker is upgrading from one with a saved
 // MANIFEST, then use this to retain unchanged resource files.
@@ -123,6 +154,8 @@ self.addEventListener("activate", function(event) {
         await caches.delete(TEMP);
         // Save the manifest to make future upgrades efficient.
         await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+        // Claim client to enable caching on first launch
+        self.clients.claim();
         return;
       }
       var oldManifest = await manifest.json();
@@ -148,6 +181,8 @@ self.addEventListener("activate", function(event) {
       await caches.delete(TEMP);
       // Save the manifest to make future upgrades efficient.
       await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+      // Claim client to enable caching on first launch
+      self.clients.claim();
       return;
     } catch (err) {
       // On an unhandled exception the state of the cache cannot be guaranteed.
@@ -158,7 +193,6 @@ self.addEventListener("activate", function(event) {
     }
   }());
 });
-
 // The fetch handler redirects requests for RESOURCE files to the service
 // worker cache.
 self.addEventListener("fetch", (event) => {
@@ -198,7 +232,6 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
-
 self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
@@ -211,7 +244,6 @@ self.addEventListener('message', (event) => {
     return;
   }
 });
-
 // Download offline will check the RESOURCES for all files not in the cache
 // and populate them.
 async function downloadOffline() {
@@ -232,7 +264,6 @@ async function downloadOffline() {
   }
   return contentCache.addAll(resources);
 }
-
 // Attempt to download the resource online before falling back to
 // the offline cache.
 function onlineFirst(event) {
